@@ -26,8 +26,18 @@
   <entry>
     <title>My first blog</title>
     <url>/2024/02/12/My-first-blog/</url>
-    <content><![CDATA[<h1 id="This-is-my-first-blog"><a href="#This-is-my-first-blog" class="headerlink" title="This is my first blog"></a>This is my first blog</h1><p>test picture</p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="a2a3592a4a8bb3d2738e55968ba43dd9fecf49059c9daf647ed948931e7868e7">aa001e2bdf54648e8ab5563315b7564746dbc291f1f6efa56f8b359d5eb0165129b4c34b132650096834af3f972462c12e7b5daf777b54d2cf8a5090e53f27f1538134a88a4ee37624c62c2c05c832046d364db2e81579d97853a1b7cb7460de0d17fe2ab1b9b1b94e41f7066a0753aa5d901f6d92d178037a88435cc848a6f9a5f297d460136c2f680be445e1b71ae86c1293381672ed34cdca3c4976562d0a7936c4cd124bdd04dd30586116ce10dc7a24134f1d80a9c197becef404ba45d5</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">please enter the password</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>test</category>
       </categories>
