@@ -346,7 +346,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-21 00:56:10" itemprop="dateModified" datetime="2024-02-21T00:56:10+08:00">2024-02-21</time>
+      <time title="Modified: 2024-02-21 00:57:12" itemprop="dateModified" datetime="2024-02-21T00:57:12+08:00">2024-02-21</time>
     </span>
 
   
@@ -374,15 +374,55 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/02/19/LLM-formula/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h1 id="如何读论文"><a href="#如何读论文" class="headerlink" title="如何读论文"></a>如何读论文</h1><h2 id="论文结构"><a href="#论文结构" class="headerlink" title="论文结构"></a>论文结构</h2><p>title abstract intro(导言) method exp(实验) conclusion</p>
+<h2 id="如何读"><a href="#如何读" class="headerlink" title="如何读"></a>如何读</h2><ol>
+<li>title abstract conclusion 可以跳到实验/方法部分一些关键的图表</li>
+<li>对整个文章过一遍</li>
+<li>精读<h1 id="一些不懂的词汇"><a href="#一些不懂的词汇" class="headerlink" title="一些不懂的词汇"></a>一些不懂的词汇</h1>end to end<br>regulation<br>L2正则项 weight decay<br>momentum<br>VAE<br>Unet<br>KL散度</li>
+</ol>
+<h1 id="Deep-Unsupervised-Learning-using-Nonequilibrium-Thermodynamics"><a href="#Deep-Unsupervised-Learning-using-Nonequilibrium-Thermodynamics" class="headerlink" title="Deep Unsupervised Learning using Nonequilibrium Thermodynamics"></a>Deep Unsupervised Learning using Nonequilibrium Thermodynamics</h1><p>(利用非平衡热力学进行深度无监督学习)<br>Here, we develop an approach that simultaneously achieves both flexibility and tractability.<br>The essential idea, inspired by non-equilibrium statistical physics, is to systematically and slowly destroy structure in a data distribution through an iterative forward diffusion process.<br>We then learn a reverse diffusion process that restores structure in data, yielding a highly flexible and tractable generative model of the data.  </p>
+<p>Historically, probabilistic models suffer from a tradeoff between two conflicting objectives: tractability and flexibility. </p>
+<h1 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1my4y1c7K4/?spm_id_from=333.337.search-card.all.click&amp;vd_source=23d912dca148fb6b64c1d180dbd63f6b">b站视频</a><br>给定训练集，产生与训练集同分布的新样本。<br>希望学到一个模型$p_{model}(x)$,其与训练样本$p_{data}(x)$相近<br>对一个100x100的图片，可以看做是一个30000维的向量，希望采样得到的新的向量与样本向量接近的概率高一点，换句话说，就是学到一个分布与样本的分布接近。</p>
+<h2 id="1-PixelRNN-amp-PixelCNN"><a href="#1-PixelRNN-amp-PixelCNN" class="headerlink" title="1.PixelRNN &amp; PixelCNN"></a>1.PixelRNN &amp; PixelCNN</h2><p>均为显式的密度模型，可以求出概率分布的显式解<br>利用链式准则将图像的生成转化为每个像素点的生成，即<br>$p(x)=\prod_{i=1}^{n}p(x_i|x_1,…,x_{i-1})$  </p>
+<ul>
+<li>需要定义像素点的产生顺序</li>
+<li>具体的分布可能很复杂，需要用神经网络建模</li>
+<li>训练时需要最大化训练数据的似然，即找到参数使得训练数据出现概率最大<h3 id="PixelRNN"><a href="#PixelRNN" class="headerlink" title="PixelRNN"></a>PixelRNN</h3>将像素生成看做一个序列生成问题，利用RNN(LSTM)的序列描述能力产生新的像素（具有时序性）。<br>缺点是训练和生成均较慢<h3 id="PixelCNN"><a href="#PixelCNN" class="headerlink" title="PixelCNN"></a>PixelCNN</h3>用CNN产生新的像素，可以用n个<strong>卷积核</strong>对目标像素进行卷积，得到值的概率分布（已生成的像素参与运算，其余不参与运算），算其与实际值的<strong>交叉熵</strong><br>训练较于RNN更快，但是生成依然很慢</li>
+</ul>
+<h2 id="2-Variational-Autoencoders-VAE"><a href="#2-Variational-Autoencoders-VAE" class="headerlink" title="2.Variational Autoencoders(VAE)"></a>2.Variational Autoencoders(VAE)</h2><h3 id="Autoencoder-自编码器"><a href="#Autoencoder-自编码器" class="headerlink" title="Autoencoder(自编码器)"></a>Autoencoder(自编码器)</h3><p>是一种无监督的特征学习，目标是利用无标签的数据找到一个<strong>低维</strong>的特征提取器，希望降维后的数据只保留原来有意义的信息,可以用来做<strong>图像分类</strong>任务。(PCA,ReLU,CNN)</p>
+<h5 id="如何学习？"><a href="#如何学习？" class="headerlink" title="如何学习？"></a>如何学习？</h5><p>编码器之外还需要解码器</p>
+<p>$ 输入数据x \xrightarrow{编码器} 特征z \xrightarrow{解码器} 重构输入数据\hat{x} \rightarrow 计算L2损失||\hat{x}-x||^2$<br>不需要标签，所以是无监督的</p>
+<h3 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h3><p>除了训练编码器，解码器可以用来生成图像<br><img data-src="LLM-formula/decoder.png" alt="decoder"></p>
+<h3 id="VAE-变分自编码器"><a href="#VAE-变分自编码器" class="headerlink" title="VAE(变分自编码器)"></a>VAE(变分自编码器)</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p><img data-src="LLM-formula/VAE.png" alt="VAE"><br>和AE不同，编码器输出一个均值m和方差$\sigma$,将$c_i=m_i+e^{\sigma_i}*e_i$传递给解码器产生输出$\hat{x}$,其中$e_i\sim N(0,1)$。<br>为了实现极大似然，神经网络优化的目标有两个：</p>
+<ul>
+<li>$e^{\sigma_i}-(1+\sigma_i)+(m_i)^2$取得最小值，即$\sigma_i$接近0，$m_i$接近0，此时$c_i$的分布接近标准正态分布</li>
+<li>$||x-\hat{x}||^2$取得最小值</li>
+</ul>
+<h4 id="为什么使用VAE"><a href="#为什么使用VAE" class="headerlink" title="为什么使用VAE"></a>为什么使用VAE</h4><p>生成图片是通过在编码空间采样后解码得到，对于AE，编码器产生的编码是离散的值，与样本一一对应，其余点没有被训练到，所以不知道会产生什么图片。<br>对于VAE，因为编码是随机的，所以编码空间的所有点都可以被训练到。例如，$x_0$是满月，$x_1$是半月，则它们之间的点可能产生四分之三月。<br><img data-src="LLM-formula/reason.png" alt="reason"></p>
+<h4 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h4><p><strong>高斯混合模型</strong>：由好多个正态分布以不同权重组合成的分布<br>$P(x)=\sum_{z}P(z)P(x|z)$,其中x|z服从正态分布<br>正态分布个数无限时，有$P(x)=\int_{z}P(z)P(x|z)dz$</p>
+<p>考虑用无限维高斯混合模型来拟合样本的分布<br>一般取$z\sim N(0,I)$，z的每一维代表一个属性，同时有$x|z\sim N(\mu(z),\sigma(z))$<br>参数$\mu(z)$和$\sigma(z)$由神经网络根据z预测。<br>利用<strong>极大似然</strong>方法，欲让指标$L=\sum_xlogP(x)$最大,其中x是每一个样本。</p>
+<p>但这是不可实现的，因为P(x|z)的分布是神经网络拟合的，<strong>不是显式的分布</strong>，而且还要考虑<strong>无限</strong>个z取积分。<br>所以需要考虑那些概率大的z，引入另一个分布q(z|x):<br>$z|x\sim N(\mu(x),\sigma(x))$<br>参数$\mu(x)$和$\sigma(x)$由另一个神经网络根据x预测。</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+logP(x)&=\int_zq(z|x)logP(x)dz  \qquad\text{(x是一个定值)}\\
+&=\int_zq(z|x)log(\frac{P(z,x)}{P(z|x)})dz\\
+&=\int_zq(z|x)log(\frac{P(z,x)}{q(z|x)}\frac{q(z|x)}{P(z|x)})dz\\
+&=\int_zq(z|x)log(\frac{P(z,x)}{q(z|x)})dz+\int_zq(z|x)log(\frac{q(z|x)}{P(z|x)})dz\\
+&=\int_zq(z|x)log(\frac{P(z,x)}{q(z|x)})dz+KL(q(z|x)||P(z|x))\\
+&\geq\int_zq(z|x)log(\frac{P(z,x)}{q(z|x)})dz\\
+&=L_b  \qquad \text{（下界）}
+\end{align*}</script><script type="math/tex; mode=display">
+\begin{align*}
+L_b&=\int_zq(z|x)log(\frac{P(z,x)}{q(z|x)})dz\\
+&=\int_zq(z|x)log(\frac{P(x|z)P(z)}{q(z|x)})dz\\
+&=\int_zq(z|x)log(\frac{P(z)}{q(z|x)})dz+\int_zq(z|x)logP(x|z)dz\\
+&=-KL(q(z|x)||P(z))+\int_zq(z|x)logP(x|z)dz
+\end{align*}</script><p>想要$L_b$最大，就需要：</p>
+<ul>
+<li>$KL(q(z|x)||P(z))$最小，即$q(z|x)$接近P(z)的标准正态分布，即$e^{\sigma_i}-(1+\sigma_i)+(m_i)^2$取得最小值</li>
+<li>$\int_zq(z|x)logP(x|z)dz$最大，即$||x-\hat{x}||^2$取得最小值</li>
+</ul>
+
       
     </div>
 
