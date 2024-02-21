@@ -340,7 +340,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-02-21 11:41:09 / Modified: 11:59:57" itemprop="dateCreated datePublished" datetime="2024-02-21T11:41:09+08:00">2024-02-21</time>
+      <time title="Created: 2024-02-21 11:41:09 / Modified: 14:26:22" itemprop="dateCreated datePublished" datetime="2024-02-21T11:41:09+08:00">2024-02-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -359,7 +359,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>174</span>
+      <span>410</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -378,11 +378,18 @@ mjx-container[display="true"] + br {
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="一latex公式">一、Latex公式</h1>
-<p>在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm un hexo-renderer-marked</span><br><span class="line">$ npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure> 更换后的pandoc无法渲染部分标题，原因在于：<br />
-- 换行需要两个空格<br />
-- 标题前要空一行 (之前的渲染器有点宝宝巴士了)</p>
-
+<p>在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc</p>
+<pre><code>$ npm un hexo-renderer-marked
+$ npm i hexo-renderer-pandoc</code></pre>
+<h2 id="问题">问题</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/02/21/problem1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1188,7 +1195,7 @@ mjx-container[display="true"] + br {
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">12 mins.</span>
+    <span title="Reading time total">13 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
