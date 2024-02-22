@@ -30,7 +30,7 @@
 <meta property="og:description" content="一、Latex公式 在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc $ npm un hexo-renderer-marked $ npm i hexo-renderer-pandoc 问题">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-21T03:41:09.000Z">
-<meta property="article:modified_time" content="2024-02-21T06:26:22.642Z">
+<meta property="article:modified_time" content="2024-02-22T12:30:32.445Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80latex%E5%85%AC%E5%BC%8F"><span class="nav-text">一、Latex公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%8F%B7"><span class="nav-text">序号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-text">图片</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80latex%E5%85%AC%E5%BC%8F"><span class="nav-text">一、Latex公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%8F%B7"><span class="nav-text">序号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-text">图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8Cgit-push%E5%85%8D%E5%AF%86"><span class="nav-text">二、git push免密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E5%B0%86git%E4%BB%93%E5%BA%93%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A"><span class="nav-text">三、将git仓库作为图床</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -230,9 +230,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-02-21 11:41:09 / Modified: 14:26:22" itemprop="dateCreated datePublished" datetime="2024-02-21T11:41:09+08:00">2024-02-21</time>
+      <time title="Created: 2024-02-21 11:41:09" itemprop="dateCreated datePublished" datetime="2024-02-21T11:41:09+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-22 20:30:32" itemprop="dateModified" datetime="2024-02-22T20:30:32+08:00">2024-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,7 +264,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>410</span>
+      <span>486</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -297,6 +303,10 @@ $ npm i hexo-renderer-pandoc</code></pre>
 同时想设置图片左对齐<br />
 <code>&lt;img src="decoder.png" width = "400" height = "400" alt="decoder" align="left"/&gt;</code><br />
 此时发现后面的文字自动转移到图片右边了，暂时没有解决。</p>
+<h1 id="二git-push免密">二、git push免密</h1>
+<p><code>git config --global credential.helper store</code></p>
+<h1 id="三将git仓库作为图床">三、将git仓库作为图床</h1>
+<p>将链接里的<strong>blob</strong>改为<strong>raw</strong></p>
 
     </div>
 
@@ -310,11 +320,14 @@ $ npm i hexo-renderer-pandoc</code></pre>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/02/19/LLM-formula/" rel="prev" title="LLM formula">
-                  <i class="fa fa-angle-left"></i> LLM formula
+                <a href="/2024/02/19/Gen-AI-1/" rel="prev" title="Gen-AI-1">
+                  <i class="fa fa-angle-left"></i> Gen-AI-1
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/02/22/Gen-AI-2/" rel="next" title="Gen-AI(2)">
+                  Gen-AI(2) <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -353,7 +366,7 @@ $ npm i hexo-renderer-pandoc</code></pre>
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">14 mins.</span>
+    <span title="Reading time total">15 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
