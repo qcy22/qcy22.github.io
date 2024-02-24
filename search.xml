@@ -383,4 +383,20 @@ $ npm i hexo-renderer-pandoc</code></pre>
         <category>Gen-AI</category>
       </categories>
   </entry>
+  <entry>
+    <title>problem2</title>
+    <url>/2024/02/24/problem2/</url>
+    <content><![CDATA[<h1 id="hexo-d-连接超时">hexo d 连接超时</h1>
+<p>回到学校执行<code>hexo d</code>出现问题： <img data-src="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png" /><br />
+百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。<br />
+修改~/.ssh/config文件，添加</p>
+<pre><code>Host github.com
+         Hostname ssh.github.com
+         Port 443</code></pre>
+<p>问题解决</p>
+]]></content>
+      <categories>
+        <category>problems</category>
+      </categories>
+  </entry>
 </search>
