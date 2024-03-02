@@ -22,16 +22,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hexo d 连接超时 回到学校执行hexo d出现问题：  百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。 修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
+    <meta name="description" content="hexo d 连接超时回到学校执行hexo d出现问题：百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
 <meta property="og:type" content="article">
 <meta property="og:title" content="problem2">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/02/24/problem2/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="hexo d 连接超时 回到学校执行hexo d出现问题：  百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。 修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
+<meta property="og:description" content="hexo d 连接超时回到学校执行hexo d出现问题：百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png">
 <meta property="article:published_time" content="2024-02-24T09:03:29.000Z">
-<meta property="article:modified_time" content="2024-02-24T09:19:23.419Z">
+<meta property="article:modified_time" content="2024-02-24T09:19:23.000Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -277,14 +277,11 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="hexo-d-连接超时">hexo d 连接超时</h1>
-<p>回到学校执行<code>hexo d</code>出现问题： <img data-src="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png" /><br />
-百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。<br />
-修改~/.ssh/config文件，添加</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="hexo-d-连接超时"><a href="#hexo-d-连接超时" class="headerlink" title="hexo d 连接超时"></a>hexo d 连接超时</h1><p>回到学校执行<code>hexo d</code>出现问题：<br><img data-src="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png" alt=""><br>百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。<br>修改~/.ssh/config文件，添加</p>
 <pre><code>Host github.com
          Hostname ssh.github.com
-         Port 443</code></pre>
-<p>问题解决</p>
+         Port 443
+</code></pre><p>问题解决</p>
 
     </div>
 
@@ -337,14 +334,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">24k</span>
+    <span title="Word count total">27k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">22 mins.</span>
+    <span title="Reading time total">25 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
