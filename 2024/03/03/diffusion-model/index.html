@@ -22,19 +22,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="具体算法  训练过程理论上是逐步加噪使图像成为一个高斯噪声，实际上随机选择步数t，从原图直接加噪  生成时不直接取概率最大的点，而是加一个采样的随机性，这样效果更好。 数学推导 极大似然 生成模型本质上是要找到一个映射使得的分布与数据集尽可能接近。 可以证明，最大化样本的极大似然等价于最小化两个分布的KL散度。  VAE推导   但是这样会几乎都是0，所以将的输出调整为一个分布，即 DDPM DD">
+    <meta name="description" content="diffusion model">
 <meta property="og:type" content="article">
 <meta property="og:title" content="diffusion model">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/03/03/diffusion-model/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="具体算法  训练过程理论上是逐步加噪使图像成为一个高斯噪声，实际上随机选择步数t，从原图直接加噪  生成时不直接取概率最大的点，而是加一个采样的随机性，这样效果更好。 数学推导 极大似然 生成模型本质上是要找到一个映射使得的分布与数据集尽可能接近。 可以证明，最大化样本的极大似然等价于最小化两个分布的KL散度。  VAE推导   但是这样会几乎都是0，所以将的输出调整为一个分布，即 DDPM DD">
+<meta property="og:description" content="diffusion model">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/training.png">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/sampling.png">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/1.png">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/2.png">
 <meta property="article:published_time" content="2024-03-03T02:04:49.000Z">
-<meta property="article:modified_time" content="2024-03-03T10:06:03.228Z">
+<meta property="article:modified_time" content="2024-03-03T10:10:50.518Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -61,7 +61,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><style>mjx-container[jax="SVG"] {
+<style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -173,7 +173,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head>
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -259,7 +259,7 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E7%AE%97%E6%B3%95"><span class="nav-text">具体算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC"><span class="nav-text">数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6"><span class="nav-text">极大似然</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vae%E6%8E%A8%E5%AF%BC"><span class="nav-text">VAE推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ddpm"><span class="nav-text">DDPM</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E7%AE%97%E6%B3%95"><span class="nav-text">具体算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#training"><span class="nav-text">training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generating"><span class="nav-text">generating</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC"><span class="nav-text">数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6"><span class="nav-text">极大似然</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vae%E6%8E%A8%E5%AF%BC"><span class="nav-text">VAE推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ddpm"><span class="nav-text">DDPM</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -349,7 +349,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-03 10:04:49 / Modified: 18:06:03" itemprop="dateCreated datePublished" datetime="2024-03-03T10:04:49+08:00">2024-03-03</time>
+      <time title="Created: 2024-03-03 10:04:49 / Modified: 18:10:50" itemprop="dateCreated datePublished" datetime="2024-03-03T10:04:49+08:00">2024-03-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -375,7 +375,7 @@ mjx-container[display="true"] + br {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>3.1k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -392,9 +392,14 @@ mjx-container[display="true"] + br {
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="具体算法">具体算法</h1>
+    <div class="post-body" itemprop="articleBody"><p>diffusion model</p>
+<span id="more"></span>
+<h1 id="具体算法">具体算法</h1>
+<h2 id="training">training</h2>
 <p><img data-src="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/training.png" alt="training"><br>
-训练过程理论上是逐步加噪使图像成为一个高斯噪声，实际上随机选择步数t，从原图<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex;" xmlns="http://www.w3.org/2000/svg" width="2.282ex" height="1.375ex" role="img" focusable="false" viewBox="0 -442 1008.6 607.6"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,-150) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></g></svg></mjx-container></span>直接加噪 <img data-src="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/sampling.png" alt="sampling"><br>
+训练过程理论上是逐步加噪使图像成为一个高斯噪声，实际上随机选择步数t，从原图<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex;" xmlns="http://www.w3.org/2000/svg" width="2.282ex" height="1.375ex" role="img" focusable="false" viewBox="0 -442 1008.6 607.6"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,-150) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></g></svg></mjx-container></span>直接加噪</p>
+<h2 id="generating">generating</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/b9ba450427806b2419212090c1fb1dfbc09887ea/Gen-AI/sampling.png" alt="sampling"><br>
 生成时不直接取概率最大的点，而是加一个采样的随机性，这样效果更好。</p>
 <h1 id="数学推导">数学推导</h1>
 <h2 id="极大似然">极大似然</h2>
