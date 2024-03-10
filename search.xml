@@ -603,12 +603,92 @@ $ npm i hexo-renderer-pandoc
 </tr>
 <tr class="odd">
 <td>第三人称</td>
-<td>esá</td>
+<td>está</td>
 <td>están</td>
 </tr>
 </tbody>
 </table>
-<h2 id="section"></h2>
+<h2 id="自复动词-llamar">自复动词 llamar</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>单</th>
+<th>复</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第一人称</td>
+<td>me llamo</td>
+<td>nos llamamos</td>
+</tr>
+<tr class="even">
+<td>第二人称</td>
+<td>te llamas</td>
+<td>os llamáis</td>
+</tr>
+<tr class="odd">
+<td>第三人称</td>
+<td>se llama</td>
+<td>se llaman</td>
+</tr>
+</tbody>
+</table>
+<h2 id="月份">月份</h2>
+<table>
+<thead>
+<tr class="header">
+<th>enero</th>
+<th>febrero</th>
+<th>marzo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>abril</td>
+<td>mayo</td>
+<td>junio</td>
+</tr>
+<tr class="even">
+<td>julio</td>
+<td>agosto</td>
+<td>septiembre</td>
+</tr>
+<tr class="odd">
+<td>octubre</td>
+<td>noviembre</td>
+<td>diciembre</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数字">数字</h2>
+<table>
+<thead>
+<tr class="header">
+<th>uno</th>
+<th>dos</th>
+<th>tres</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cuatro</td>
+<td>cinco</td>
+<td>seis</td>
+</tr>
+<tr class="even">
+<td>siete</td>
+<td>ocho</td>
+<td>nueve</td>
+</tr>
+<tr class="odd">
+<td>diez</td>
+<td>cien</td>
+<td>mil</td>
+</tr>
+</tbody>
+</table>
 <h1 id="语音">语音</h1>
 <h2 id="重读">重读</h2>
 <ul>
@@ -621,6 +701,11 @@ $ npm i hexo-renderer-pandoc
 <li>a,o,e和i,u在一起时构成一个音节，重读a,o,e</li>
 </ul>
 <h1 id="语法">语法</h1>
+<h2 id="特殊阴阳性">特殊阴阳性</h2>
+<h3 id="以o结尾的阴性">以o结尾的阴性</h3>
+<p>mano</p>
+<h3 id="以a结尾的阳性">以a结尾的阳性</h3>
+<p>mapa,sofa,problema,planeta,programa,dilema</p>
 ]]></content>
       <categories>
         <category>diary</category>
@@ -643,6 +728,20 @@ $ npm i hexo-renderer-pandoc
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>problem3</title>
+    <url>/2024/03/10/problem3/</url>
+    <content><![CDATA[<h1 id="ts">ts</h1>
+<p>写ts小作业遇到一个很奇怪的bug，</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//index表示现在正在找第几个Mentsu,hand是当前剩下的牌</span></span><br><span class="line"><span class="keyword">const</span> findMentsu = (<span class="attr">hand</span>: <span class="title class_">Hand</span>, <span class="attr">index</span>: <span class="built_in">number</span>, <span class="attr">agari</span>: <span class="title class_">Agari</span>): [<span class="built_in">boolean</span>, <span class="title class_">Agari</span>[]] =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="literal">true</span>, [agari]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">all_success</span>: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="attr">result</span>: <span class="title class_">Agari</span>[] = [];</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (hand[i].<span class="property">count</span> &lt; <span class="number">1</span>) &#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hand[i].<span class="property">count</span> &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> handCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(hand));</span><br><span class="line">        handCopy[i].<span class="property">count</span> -= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">const</span> [success, agari_temp1] = <span class="title function_">findMentsu</span>(handCopy, index + <span class="number">1</span>, agari);</span><br><span class="line">        <span class="keyword">if</span> (success)<span class="comment">//</span></span><br><span class="line">        &#123;</span><br><span class="line">            all_success = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; agari_temp1.<span class="property">length</span>; j++) &#123;</span><br><span class="line">                agari_temp1[j][index] = &#123; <span class="attr">base</span>: hand[i].<span class="property">base</span>, <span class="attr">type</span>: <span class="string">&quot;Kotsu&quot;</span> &#125;;</span><br><span class="line">                result.<span class="title function_">push</span>(agari_temp1[j])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; hand.<span class="property">length</span> - <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (hand[i].<span class="property">count</span> &gt;= <span class="number">1</span> &amp;&amp; (hand[i + <span class="number">1</span>].<span class="property">base</span> == hand[i].<span class="property">base</span> + <span class="number">1</span>) &amp;&amp; hand[i + <span class="number">1</span>].<span class="property">count</span> &gt;= <span class="number">1</span> &amp;&amp; (hand[i + <span class="number">2</span>].<span class="property">base</span> == hand[i].<span class="property">base</span> + <span class="number">2</span>) &amp;&amp; hand[i + <span class="number">2</span>].<span class="property">count</span> &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> handCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(hand));</span><br><span class="line">            handCopy[i].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            handCopy[i + <span class="number">1</span>].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            handCopy[i + <span class="number">2</span>].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">const</span> [success, agari_temp2] = <span class="title function_">findMentsu</span>(handCopy, index + <span class="number">1</span>, agari);</span><br><span class="line">            <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                all_success = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; agari_temp2.<span class="property">length</span>; j++) &#123;</span><br><span class="line">                    agari_temp2[j][index] = &#123; <span class="attr">base</span>: hand[i].<span class="property">base</span>, <span class="attr">type</span>: <span class="string">&quot;Shuntsu&quot;</span> &#125;;</span><br><span class="line">                    result.<span class="title function_">push</span>(agari_temp2[j])</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (all_success == <span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="literal">true</span>, result];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="literal">false</span>, [agari]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现递归调用findMentsu函数后，原母函数的result发生了改变，导致结果不正确。<br />
+将<code>result.push(agari_temp1[j])</code>改为<code>result.push([agari_temp2[j][0], agari_temp2[j][1], agari_temp2[j][2], agari_temp2[j][3], agari_temp2[j][4]])</code>后，问题解决。<br />
+但是不知道为出了bug，目前可以确定是因为<code>agari_temp1[j]</code>被递归函数改变，导致result发生改变，但是还不知道为什么<code>agari_temp1[j]</code>会被改变。</p>
+]]></content>
+      <categories>
+        <category>problems</category>
       </categories>
   </entry>
 </search>
