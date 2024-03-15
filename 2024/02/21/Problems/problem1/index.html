@@ -22,26 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="QCY&#39;s blog">
-<meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/categories/introduction-to-AI/index.html">
+    <meta name="description" content="一、Latex公式在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc    $ npm un hexo-renderer-marked $ npm i hexo-renderer-pandoc 问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="problem1">
+<meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/02/21/Problems/problem1/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="blog">
+<meta property="og:description" content="一、Latex公式在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc    $ npm un hexo-renderer-marked $ npm i hexo-renderer-pandoc 问题">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-21T03:41:09.000Z">
+<meta property="article:modified_time" content="2024-02-22T12:30:32.000Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://github.com/qcy22/qcy22.github.io.git/categories/introduction-to-AI/">
+<link rel="canonical" href="https://github.com/qcy22/qcy22.github.io.git/2024/02/21/Problems/problem1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/introduction-to-AI/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://github.com/qcy22/qcy22.github.io.git/2024/02/21/Problems/problem1/","path":"2024/02/21/Problems/problem1/","title":"problem1"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: introduction to AI | QCY's blog</title>
+<title>problem1 | QCY's blog</title>
   
 
 
@@ -127,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -140,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Latex%E5%85%AC%E5%BC%8F"><span class="nav-text">一、Latex公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%8F%B7"><span class="nav-text">序号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-text">图片</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81git-push%E5%85%8D%E5%AF%86"><span class="nav-text">二、git push免密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%B0%86git%E4%BB%93%E5%BA%93%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A"><span class="nav-text">三、将git仓库作为图床</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,50 +195,140 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">introduction to AI
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/02/21/Problems/problem1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="QCY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCY's blog">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="problem1 | QCY's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          problem1
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-21 11:41:09" itemprop="dateCreated datePublished" datetime="2024-02-21T11:41:09+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-22 20:30:32" itemprop="dateModified" datetime="2024-02-22T20:30:32+08:00">2024-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/problems/" itemprop="url" rel="index"><span itemprop="name">problems</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>576</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、Latex公式"><a href="#一、Latex公式" class="headerlink" title="一、Latex公式"></a>一、Latex公式</h1><p>在blog中插入Latex公式时发现不能识别多行公式，查询知是渲染器(renderer)问题，更换为Pandoc   </p>
+<pre><code>$ npm un hexo-renderer-marked
+$ npm i hexo-renderer-pandoc
+</code></pre><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><span id="more"></span>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>更换后的pandoc无法渲染部分标题，原因在于：  </p>
+<ul>
+<li>换行需要两个空格，标题独占一行才能识别  </li>
+<li>标题前要空一行<br>(之前的渲染器有点宝宝巴士了)  </li>
+</ul>
+<h3 id="序号"><a href="#序号" class="headerlink" title="序号"></a>序号</h3><p>无法识别-*1.等序号，发现也需要前面空一行才行  </p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>想要调节图片大小，便使用HTML代码<br><code>&lt;img src=&quot;decoder.png&quot; width = &quot;400&quot; height = &quot;400&quot; alt=&quot;decoder&quot; /&gt;</code><br>同时想设置图片左对齐<br><code>&lt;img src=&quot;decoder.png&quot; width = &quot;400&quot; height = &quot;400&quot; alt=&quot;decoder&quot; align=&quot;left&quot;/&gt;</code><br>此时发现后面的文字自动转移到图片右边了，暂时没有解决。  </p>
+<h1 id="二、git-push免密"><a href="#二、git-push免密" class="headerlink" title="二、git push免密"></a>二、git push免密</h1><p><code>git config --global credential.helper store</code>  </p>
+<h1 id="三、将git仓库作为图床"><a href="#三、将git仓库作为图床" class="headerlink" title="三、将git仓库作为图床"></a>三、将git仓库作为图床</h1><p>将链接里的<strong>blob</strong>改为<strong>raw</strong></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-03-11T21:39:39+08:00"
-              content="2024-03-11">
-          03-11
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2024/03/11/A-star/" itemprop="url">
-          <span itemprop="name">A-star</span>
-        </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/19/Gen-AI/Gen-AI-1/" rel="prev" title="Gen-AI-1">
+                  <i class="fa fa-angle-left"></i> Gen-AI-1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/22/Gen-AI/Gen-AI-2/" rel="next" title="Gen-AI-2">
+                  Gen-AI-2 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
