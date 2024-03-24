@@ -1480,7 +1480,8 @@ $ npm i hexo-renderer-pandoc</code></pre>
     <title>SE</title>
     <url>/2024/03/19/SE/</url>
     <content><![CDATA[<p>要求能够令用户注册，需要对用户填写的注册信息提出合理的格式要求（第一个页面）</p>
-<p>已登录的⽤⼾可以选择注销在该系统中⾃⼰的账号，注销后服务器端应当正确处理涉及到该⽤⼾的所有数据，如聊天记录与好友关系等 （注销后返回登录页面）</p>
+<p>已登录的用户可以选择注销在该系统中自己的账号，注销后服务器端应当正确处理涉及到该用户的所有数据，如聊天记录与好友关系等 （注销后返回登录页面）</p>
+<span id="more"></span>
 <p>登录后同步消息记录</p>
 <p>已登录的⽤⼾可以修改⾃⼰的⽤⼾名、密码、头像、邮箱、⼿机等个⼈信息。对于涉及到⾝份认证信息的修改（如密码、邮箱、⼿机等），应当⾄少通过⼀种认证⼿段验证⾝份（应该是JWT相关的）</p>
 <p>需要一个展示用户详情页</p>
@@ -1495,6 +1496,7 @@ $ npm i hexo-renderer-pandoc</code></pre>
     <url>/2024/03/23/Homework/PreviewReport/lab1-report/</url>
     <content><![CDATA[<h1 id="实验一">实验一</h1>
 <h2 id="波形图">波形图</h2>
+<span id="more"></span>
 <p><img data-src="https://github.com/qcy22/images/raw/eb38358343fb395d907d4d2c13ecf7ce917c0991/homework/lab1-1.jpg" /></p>
 <h2 id="参数">参数</h2>
 <p>频率：99.955kHz<br />
