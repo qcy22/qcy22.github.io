@@ -804,8 +804,33 @@ Witkin等人对4139名身高高于1.84m的男性进行染色体分析<sup>③</s
 </tbody>
 </table>
 <h2 id="夺格代词">夺格代词</h2>
-<p>介词后面要用夺格<br>
-| | 单 | 复 | | -------- | -------------------- | ------------------- | | 第一人称 | mí | nosotros | | 第二人称 | ti | vosotros | | 第三人称 | él,ella,usted | ellos,ellas,ustedes |</p>
+<p>介词后面要用夺格</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>单</th>
+<th>复</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第一人称</td>
+<td>mí</td>
+<td>nosotros</td>
+</tr>
+<tr class="even">
+<td>第二人称</td>
+<td>ti</td>
+<td>vosotros</td>
+</tr>
+<tr class="odd">
+<td>第三人称</td>
+<td>él,ella,usted</td>
+<td>ellos,ellas,ustedes</td>
+</tr>
+</tbody>
+</table>
 <h2 id="自复">自复</h2>
 <table>
 <thead>
@@ -1455,6 +1480,40 @@ Le encargo la misión a Pedro</p>
 <h1 id="homework1">homework1</h1>
 <p>Sobre un amgio mío</p>
 <p>Ella es mi amiga. Se llama Liu wenyue. Ella estudia en la Universidad Jiaotong de Shanghái. Es un estudiante de medicina. Le gusta jugar al bádminton.</p>
+<h1 id="月3日-第6周第二节">4月3日 第6周第二节</h1>
+<p>变位 parecer 一单 parezco<br>
+suponer 一单 supongo</p>
+<p>表达更老/年轻<br>
+menor/mayor que<br>
+María es mayor que Victoria.<br>
+Mi hermanita es <strong>de</strong> tres años menor que yo.<br>
+Mi hermanita lleva tres años <strong>menores</strong> que(menores修饰的是anos)<br>
+一般的比较：más +adj.+que</p>
+<p>acostar变位 acuesto acuestas acuesta acostamos acostáis acuestan</p>
+<p>逻辑上表示顺序<br>
+primero/al principio<br>
+luego<br>
+más tarde<br>
+por último</p>
+<p>lleva 把..带走 过..生活 比..大几岁 拿走..据为己有（自复）<br>
+alguien se lleva mi móvil</p>
+<p>por eso/de modo que</p>
+<p>la ciudad de Beijing</p>
+<p>contigo conmigo 和你/我 con加夺格的特殊形式</p>
+<p>en+交通工具<br>
+en metro/coche/tren/avión/barco(船)<br>
+走路用a</p>
+<p>¡Qué inteligente es el chico! 感叹句<br>
+inolvidable 难忘的<br>
+guapo 漂亮的</p>
+<p>刷牙 se cepilla <strong>los</strong> dientes 不用sus</p>
+<p>regresar de .. a .. 从...回到..</p>
+<p>parecer 像是，长得像，（自复）使..认为..样<br>
+No le parece bien a Pedro la hora de la reunión<br>
+Ema parece la hermana de Juan.</p>
+<p>Supongo que los dos son muy amigos.</p>
+<h2 id="homework">homework</h2>
+<p>La familia de Juan vive en Lima,Perú.Siete son en su famalia: sus abuelos,sus padres,su menor hermana y él.La casa de su familia es grande y tiene una sala de estar, cuatro dormitorios, dos cuartos de baño y una cocina. Los abuelos de Juan son muy mayores ,por eso no trabajan.Sus padres son profesores y enseñan inglés en una secundaria. No tienen clases todos los días ,por eso no están muy ocupados.Juan estudia bachillerato y su hermana va a un colegio. Por la mañana Juan lleva a su hermana al colegio y luego toma una autobús para ir a su secundaria.Tiene clases por la mañana y por la tarde, por eso está muy cansado cuando llega a casa.</p>
 ]]></content>
       <categories>
         <category>note</category>
@@ -1693,6 +1752,7 @@ $ npm i hexo-renderer-pandoc</code></pre>
     <content><![CDATA[<p>记录一下读论文</p>
 <p>第四周</p>
 <p>主要调研了一下长视频生成工作</p>
+<span id="more"></span>
 <h1 id="phenaki-variable-length-video-generation-from-open-domain-textual-descriptions">PHENAKI: variable length video generation from open domain textual descriptions</h1>
 <h2 id="背景与挑战">背景与挑战</h2>
 <ol type="1">
@@ -1714,7 +1774,8 @@ Ideally,a video generation model must be able to generate videos of <strong>arbi
 <li><strong>Most importantly</strong>, the ViViT encoder requires a <strong>fixed length</strong> video input due to the all-to-all attention in time. Therefore, we apply <strong>causal attention</strong> instead such that our C-ViViT encoder becomes <strong>autoregressive</strong> and allows for a variable number of input frames which are necessary to learn from image datasets, and auto-regressively extrapolate video or single frames into the future.</li>
 </ol>
 <h4 id="名词解释">名词解释</h4>
-<p><a href="https://zhuanlan.zhihu.com/p/663840848">链接</a> <strong>CausalSelfAttention</strong><br />
+<p><a href="https://zhuanlan.zhihu.com/p/663840848">链接</a></p>
+<p><strong>CausalSelfAttention</strong><br />
 是一种自注意力机制,主要用于序列到序列的任务中,例如机器翻译、文本摘要等。它的主要特点是:</p>
 <ul>
 <li><strong>仅允许注意力模型访问当前和之前的输入,而不能访问之后的输入</strong>,这符合序列到序列任务的因果性要求。例如在机器翻译任务中,翻译某个词时不能访问该词之后的内容。</li>
@@ -1783,6 +1844,122 @@ Ideally,a video generation model must be able to generate videos of <strong>arbi
 ]]></content>
       <categories>
         <category>Gen-AI</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>2024-4</title>
+    <url>/2024/04/07/Diary/2024-4/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="447cae4f0c4a3e4e43db651b980e456f3db01f04f7589195e51c1dfb7431c816">1363a06ae91b2ed939e8c725ecb414e11fb8b4a6090335225704c21a1788694ddb28fc66cf2c78fba7e76b5412fd414665f62034c0c629cc60cbaaf68b7e8113e449a0fc07b6b16fde12afa39665b778601f834ecb17288fc60c7db30e251c28895a08c5c549a8c52efe76b432e1560e2aa0ce8c7bf7d53b5adcbc6a9b269c3ee4bcbb75c21cc9662388a9d510ddae4ccca985171164869a667dc2cd536892c852a15d266cf497470920d09b83edaab9142138d434eac84c31c3a8ed342d0555095192f769f482b27d125ee4a20d53fd3a763bb696ef69a6152092d48e29dc337aa982780b4bf8b1f681eae9c72213bd365de303a5a1aa8ac0da46a8c9d9a507cf1e53a897e0688fe2e930a85dc4effa6483c81ff0aaaed1552e14023625e0604821a47f8825c93ca8624435bd165738db3514d92ad0ffea9e1a40c6eea238bd37d11a0b31ab772e3fe3eb4147cd5fd05ba8485b8ad8eb526e8c76a8ca2c1485b8d7810be947df7b1174e375221078226421e3e4b61e420f5a4d6d6870f3eb4e529f7bcad46d8fa3151a9668a2106265b7d899a109230608cdbbcdf91abd6bbc339faae7ef08f3b6c3058712afd914381e01e26d04c609d12f3836869b3b21f707563aa00eb8b4bbbf18a527219f854e927928b51732fc5b85d637592e63f040c82571a1c80f7616f6e0faa7919a771159083a7c88b488a692e0e1f8e5a6eb7593f98be64155b6d7cfe96e305b30aa63adcc7285907f3312c88170e1c56dbe17dbf8231f42a602c62fb0aedb507361c9b0e266f12084087004ce90616309d732c15df335f5c1d1aaf297da340238fd48b3d94b72e837b8cc3e4560ebfa63c17c38069413902061e6704c1fc5509445a6ad7d6169496b1a10b8189ff0ed0e818d24d7315bf368eec29de34b0347d15fb2b9b07329cb54157c1dd398c4f0495352ff95399d398e84a7c22206e97dff87ed5026fbc8d54c6003958a56d3592d1acfeab47167a106dad0e93022703eff3a5b5e53e1028df344876f2da60fe144a41b8f1fbecd994a981ac97060273aae9f4fc6eaf998e50b77cca5ddd83ea5f2c7e86289d6474ec397ab249ea6837d1da67b1087dc025a05c6661ba6a8b7ef35b0f4c3ea7c04e662e3c77ecb7ee1ac1c82f0fdbce5a7d682641b8c270e0e3e4496eebcc29e57a6f4de0ccf504a1840c2ce4c95b5bea382a828c09ad9d7abfe1e353d6a0d39f1761f4655611dedef41ee063748d071ac73d1d4da705a000cac750d432b0a29d820ccd799aa8fbe2bbffec72b0c701fa4a2471e15e30d284c6652cf045a0c700a5b478739adde874804e4cd32b938837595dd65110fb885257788c625047e8624d961e3e3f53d78f75bea2110d336aa8836a15d5c6286f0707bab424794f85b62c64fcbb4977c7b0e7fb411982e3d2903333f048d17ee951d1e824117f8f181e875147ad5e1ed491b91639d2731024857d22951443ba033029aa2b22fa03231fc1e018158902afce303c29665d53d2348836f461956a815a1b23ad5756e8590083d458cd45b8659c57211c1dd4c4310baac02558aec0720758ea3ba0c2c0be59cdbca4c4dd8c9f7e3fdb7f012d3ddd2c27c9c75118f5d35b1ebdc1d2990d97fbe6d5d96bc77eebb2e4efc97b3e3b51004585c646ac58f0f4afa1a0aeaf05857b098070aef2a79e87519db63e1323b73ada6d561f882c11e63d6f5a7d6e8d857c567700e74f1af94af252a7dd0f9b9941539dec55aa82f621de6cc9459fb1d4d0ca4f6640b951d979f334f4854a0b20f61da85a02bc45da8f902b712033ddcf2ec6f9c5fd1ead6d12bd946bccd6a48b4f540f76262c138ef3e89010f345c6e9f79f7db5749b0a1e4a8af73656d439b12f3aae207e4e59a77a9725a1fa91a827ac0b2c2c4e15abe9846001727ff5c189cf846ac7ba0a95781c2cd741500345619463fb390605e180ce8a9652eac916b6dc66bacab7c919afc28a5dcc6fa5751eba744cd79be96bc2490822ef2b96347afbe8e46c4b116ab3ed46a025f22d45113f5e8a846b82435ca00ae0241154a5cd76b9b8f6ed880cc424fbf9d96ff2366cfcce038cddf3b6e3c94897fc4cd488eb8ea55873d51f19e7d8af0866fcc80e0c77b168e73e576f915541abc2890e22417e8d76dc81b5362459fcb719eb3bb6e316737877eedc19b0e40f42c3b31812bd073597adc318d457b44ace3a13a864271ea933cf53ced629fe86c3d6e45f8fb7d0dfc4f09c7e2f548852dd99fcea0ca43e6747e32ee5c4e3cc63b962a9dd4ddef7828940fe74fe35787745e1ee725fac6e038942e3a949bc013557abb58c958398d8a0cd4cda5fc35a62d68c58b16bcd5e66c6f80fb4ab01498ecb18ad9b946f46e8a034a474cd1c46cb5d97febcb468c28fab7be1fca4c27adb632118341e302f0f784fe00a151ab7b1d2bbeaf0be57e142d823c43594e0bc6811d4c74ce9b2f76e5960648d8656e6451f65eabc6fc9e8a3cb6e30e5dc372068648bffdc2e5350e8e51f7a5f3bd69fd2541ddd04a3a6769049310b3823e4d970367812a36c7f5bc689a9d0643af8ec03dea42eaa739dde5b360373b25fad9c41fa39efad98165112e6e20f75368dab1022bab17cf8c183b837d5b230c5d457d2f641dadac943b706202fd797d88a8ae02b83d4b0072679de06edeaa0a7773fc8b2d552f700ee745131e9b3968e915762908c744c1ef588a37e0d0ccc0d923385a706d5eceeb3746dd664c8bec6d1272fbcec10ec3b8f8bce33a90869bcc4a3a7c3d7277296a9b0d2f497cbbd1ffa2315257634c6cfca1cc49044c6d73d6d37f1745303df33bc63cefe22c69d32dc0358b9cbae44210705984742f249fd1b0fd108c2c78c96559fe9994cca5073eb9838d6d76aca7f31b596c04e1a2f8d83b57c96e056ebea5a283b3ff13e265fa9410b258889749f87420b0834992a05faf891e70a0cef61fa8b47cadf5f607c4fa7ca8eb2897e62136d793678e3ab23ba4390d9b007534e601ba6055e0ba29e8bdcedd01a55b67c3a4b552a236c61de0b78724628bf19e5295ffe778902a6e894e444c610443ddc8cc6ac7837d458b230a5ec8722ecea19291baa34e8e3485ce23597f973eb73378be15a055a9b190c909be7a18698b2e2ca92eceec1067e68ce9dc9a055715c78dcc162f232fa83fea27aef292130da41f15a1698a382203839b23921f8c5cca65cbe497f6bf5841163ff57073962d97ffd3ee00383a01cfd0f644538f2322a926d7f588b4980ad031b8a9a8343925704eee9be91c5c4eac21b7591e11d1553750a329d9c3081972441315ae4032e6b46fde79067d0e8d4529eed42f2d06b21ffe5717a2aeb8e9127a4f0f8b4b7c59ebc4078c077fc32df0b9f203cfbdc0a3216e3f2ff71d7000c3200a46fb0ab171ee4b833876074cfcb992ee845dcc98e2e615204a57530182a60050d08d30726ef302c11395817842bda41fd5e84d2cdb3240741c69fb866ab2989f70a1e76f814547b71e3a60322454bb6aeff17fe2a7b7212b1d8a26849a267e3646e43a8988bafe0837f938d7f1ad2b6477ab61b4d552433c93dbceefca58f9ff4a717120eca402f8e9f6cd5f55280058e8e3385037b303b89974133f921e29f7dad3f647295776db9be70274bfd9d749546dfd144970f369ca6df840a254e6069966219ce031534406711fd63b46b95c69e29dd2dc</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>lab2-preview</title>
+    <url>/2024/03/28/Homework/PreviewReport/lab2-preview/</url>
+    <content><![CDATA[<h1 id="实验内容">实验内容</h1>
+<ol type="1">
+<li><p>测量 CMOS 与非门 CD4011 的平均延迟时间</p></li>
+<li><p>测量 CMOS 与非门 CD4011 的电压传输特性</p></li>
+<li><p>测量 TTL 与非门 74LS00 的电压传输特性</p></li>
+<li><p>测量 TTL 与非门 74LS00 的平均延迟时间</p></li>
+</ol>
+<h1 id="实验步骤">实验步骤</h1>
+<h2 id="实验1">实验1</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-2.png" /></p>
+<ol type="1">
+<li>参照实验 1 的内容，使用信号发生器产生 1MHz TTL 方波；<br />
+</li>
+<li>连接电路，将方波作为与非门的输入，用示波器的 CH1（通道 1）和 CH2（通道 2）探头分别接入输入和输出；<br />
+</li>
+<li>接通电路开关，按下Auto Scale键显示波形，通道 2 的波形会出现反相的通道 1 波形<br />
+</li>
+<li>按测量Meas按键，在测量菜单里，在类型软键中选择延迟时间，然后设置软键；在测量设置菜单里，源1选 1，选上升沿, 源2选 2，选下降沿；使用Back按钮返回上一级测量菜单，按添加测量软键，就把通道 1 波形上升沿到通道波形下降沿的延时 tpHL添加到屏幕右侧的测量栏中；使用同样方式可以将通道 1 波形下降沿到通道波形上升沿的延时 tpLH。</li>
+</ol>
+<h3 id="电路图">电路图</h3>
+<p>VCC-P14 发生器-P2 发生器-1端口 P1-P2 P3-2端口 P7&amp;1端口&amp;2端口-GND</p>
+<h2 id="实验二">实验二</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
+<p>电压传输特性是指输出电压vo与输入电压vi的函数关系</p>
+<ol type="1">
+<li>参照实验 1 的内容，使用信号发生器产生 100Hz 0-5V 三角波；<br />
+</li>
+<li>连接电路，将三角波作为与非门的输入，用示波器的 CH1（通道 1）和 CH2（通道 2）探头分别接入输入和输出；<br />
+</li>
+<li>接通电路开关，按下Auto Scale键显示波形，波形显示如下：<br />
+</li>
+<li>按下Horiz按钮，在屏幕下方会出现水平设置菜单：选择时基模式为XY，波形就会显示成传输特性的曲线。</li>
+</ol>
+<h2 id="实验三">实验三</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
+<p>同实验二</p>
+<h2 id="实验四">实验四</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-4.png" /></p>
+<ol type="1">
+<li>参照实验 1 的内容，使用信号发生器产生 2MHz TTL 方波；<br />
+</li>
+<li>连接电路，将方波作为与非门的输入，用示波器的 CH1（通道 1）和 CH2（通道 2）探头分别接入输入和输出；<br />
+</li>
+<li>接通电路开关，按下Auto Scale键显示波形，通道 2 的波形会出现同相的通道 1 波形；<br />
+</li>
+<li>开始测量： 按测量Meas按键，在测量菜单里，在类型软键中选择延迟时间，然后设置软键；<br />
+在测量设置菜单里，源1选 1，选上升沿, 源2选 2，选上升沿；使用Back按钮返回上一级测量菜单，按添加测量软键，就把通道 1 波形上升沿到通道波形上升沿的延时 tpd1添加到屏幕右侧的测量栏中；使用同样方式可以将通道 1 波形下降沿到通道波形下降沿的延时 tpd2。</li>
+</ol>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-1.png" /></p>
+<h3 id="电路图-1">电路图</h3>
+<p>VCC-P14 发生器-P2 发生器-1端口 P1-P2 P3-2端口 P7&amp;1端口&amp;2端口-GND P3-P4 之后类似</p>
+]]></content>
+      <categories>
+        <category>homework</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>lab2-report</title>
+    <url>/2024/03/29/Homework/PreviewReport/lab2-report/</url>
+    <content><![CDATA[<h1 id="实验电路图">实验电路图</h1>
+<h2 id="实验1-cd4011平均延迟时间">实验1 CD4011平均延迟时间</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-2.png" /></p>
+<h3 id="接线图">接线图</h3>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-1.png" /><br />
+注意连接电源即可</p>
+<h2 id="实验二-cd4011电压传输特性">实验二 CD4011电压传输特性</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
+<p>接线图与实验一相同，只需额外将输出与电阻模块连接即可</p>
+<h2 id="实验三-74ls00电压传输特性">实验三 74LS00电压传输特性</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
+<p>接线图与实验二相同</p>
+<h2 id="实验四-74ls00平均延迟时间">实验四 74LS00平均延迟时间</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-4.png" /></p>
+<h3 id="接线图-1">接线图</h3>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-2.png" /></p>
+<h1 id="测试波形图">测试波形图</h1>
+<h2 id="实验一">实验一</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-3.jpg" /></p>
+<h2 id="实验二">实验二</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-4.jpg" /></p>
+<h2 id="实验三">实验三</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-5.jpg" /></p>
+<h2 id="实验四">实验四</h2>
+<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-6.jpg" /></p>
+<h1 id="实验结果">实验结果</h1>
+<p><strong>CD4011平均延迟时间为50.5ns</strong></p>
+<p><strong>74LS00平均延迟时间为10.125ns</strong></p>
+<h1 id="性能比较">性能比较</h1>
+<p>TTL 与非门 74LS00 比 CMOS 与非门 CD4011 的平均延迟时间更短</p>
+]]></content>
+      <categories>
+        <category>homework</category>
       </categories>
   </entry>
 </search>
