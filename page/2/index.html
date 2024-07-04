@@ -266,7 +266,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -301,6 +301,232 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/04/24/Homework/PreviewReport/lab4-preview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="QCY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCY's blog">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | QCY's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/24/Homework/PreviewReport/lab4-preview/" class="post-title-link" itemprop="url">lab4-preview</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-24 20:20:06 / Modified: 20:33:02" itemprop="dateCreated datePublished" datetime="2024-04-24T20:20:06+08:00">2024-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vivado使用">Vivado使用</h1>
+<ol type="1">
+<li>创建项目<br />
+</li>
+<li>编写代码<br />
+</li>
+<li>代码综合<br />
+</li>
+<li>添加约束<br />
+</li>
+<li>配置 FPGA</li>
+</ol>
+<h1 id="实验">实验</h1>
+<h2 id="代码">代码：</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">module decoder (</span><br><span class="line">    input wire [3:0] sw,    //拨动开关输入</span><br><span class="line">    output reg [6:0] seg    //七段数码管输出</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    always_comb begin</span><br><span class="line">        case (sw)</span><br><span class="line">            4&#x27;h0: seg = 7&#x27;b1111110;</span><br><span class="line">            4&#x27;h1: seg = 7&#x27;b0110000;</span><br><span class="line">            4&#x27;h2: seg = 7&#x27;b1101101;</span><br><span class="line">            4&#x27;h3: seg = 7&#x27;b1111001;</span><br><span class="line">            4&#x27;h4: seg = 7&#x27;b0110011;</span><br><span class="line">            4&#x27;h5: seg = 7&#x27;b1011011;</span><br><span class="line">            4&#x27;h6: seg = 7&#x27;b1011111;</span><br><span class="line">            4&#x27;h7: seg = 7&#x27;b1110000;</span><br><span class="line">            4&#x27;h8: seg = 7&#x27;b1111111;</span><br><span class="line">            4&#x27;h9: seg = 7&#x27;b1110011;</span><br><span class="line">            4&#x27;hA: seg = 7&#x27;b1110111;</span><br><span class="line">            4&#x27;hB: seg = 7&#x27;b0011111;</span><br><span class="line">            4&#x27;hC: seg = 7&#x27;b1001110;</span><br><span class="line">            4&#x27;hD: seg = 7&#x27;b0111101;</span><br><span class="line">            4&#x27;hE: seg = 7&#x27;b1001111;</span><br><span class="line">            4&#x27;hF: seg = 7&#x27;b1000111;</span><br><span class="line">            default: seg = 7&#x27;b0; </span><br><span class="line">        endcase</span><br><span class="line">    end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+<h2 id="约束文件">约束文件</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># sw input</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN M21 IOSTANDARD LVCMOS33&#125; [get_ports sw[3]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN N20 IOSTANDARD LVCMOS33&#125; [get_ports sw[2]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN N22 IOSTANDARD LVCMOS33&#125; [get_ports sw[1]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN P21 IOSTANDARD LVCMOS33&#125; [get_ports sw[0]];</span><br><span class="line"></span><br><span class="line"># seg output</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN Y21 IOSTANDARD LVCMOS33&#125; [get_ports seg[6]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AB22 IOSTANDARD LVCMOS33&#125; [get_ports seg[5]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AA18 IOSTANDARD LVCMOS33&#125; [get_ports seg[4]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AB18 IOSTANDARD LVCMOS33&#125; [get_ports seg[3]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AA20 IOSTANDARD LVCMOS33&#125; [get_ports seg[2]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AB21 IOSTANDARD LVCMOS33&#125; [get_ports seg[1]];</span><br><span class="line">set_property -dict &#123;PACKAGE_PIN AA21 IOSTANDARD LVCMOS33&#125; [get_ports seg[0]];</span><br><span class="line"></span><br><span class="line">set_property CFGBVS VCCO [current_design]</span><br><span class="line">set_property CONFIG_VOLTAGE 3.3 [current_design]</span><br></pre></td></tr></table></figure>
+<h2 id="实验步骤">实验步骤</h2>
+<ol type="1">
+<li>使用 vivado2019.2 新建一个工程，编写 system verilog 代码，并进行综合；<br />
+</li>
+<li>设置管脚约束，生成 bitsteam 文件；</li>
+<li>使用开关模块，可编程模块和带译码的七段数码管模块，进行电路连接；</li>
+<li>配置 FPGA，测试电路功能是否满足要求，完成实验。</li>
+</ol>
+<h2 id="接线">接线</h2>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/04/18/Homework/maogai/course-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="QCY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCY's blog">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | QCY's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/18/Homework/maogai/course-summary/" class="post-title-link" itemprop="url">course summary</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-18 16:02:32" itemprop="dateCreated datePublished" datetime="2024-04-18T16:02:32+08:00">2024-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-20 21:02:45" itemprop="dateModified" datetime="2024-04-20T21:02:45+08:00">2024-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/18/Homework/maogai/course-summary/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1929,217 +2155,8 @@ mjx-container[display="true"] + br {
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/03/23/Homework/PreviewReport/lab1-report/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="QCY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCY's blog">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | QCY's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/23/Homework/PreviewReport/lab1-report/" class="post-title-link" itemprop="url">lab1-report</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-03-23 21:47:03" itemprop="dateCreated datePublished" datetime="2024-03-23T21:47:03+08:00">2024-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-24 22:09:01" itemprop="dateModified" datetime="2024-03-24T22:09:01+08:00">2024-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>159</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="实验一">实验一</h1>
-<h2 id="波形图">波形图</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/23/Homework/PreviewReport/lab1-report/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/03/18/Note/gate-circuit/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="QCY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCY's blog">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | QCY's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/18/Note/gate-circuit/" class="post-title-link" itemprop="url">gate circuit</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-18 17:59:29 / Modified: 20:25:06" itemprop="dateCreated datePublished" datetime="2024-03-18T17:59:29+08:00">2024-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>715</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>数电第三章学习笔记</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/18/Note/gate-circuit/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -2162,14 +2179,14 @@ mjx-container[display="true"] + br {
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">108k</span>
+    <span title="Word count total">112k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:38</span>
+    <span title="Reading time total">1:42</span>
   </span>
 </div>
 <div class="busuanzi-count">
