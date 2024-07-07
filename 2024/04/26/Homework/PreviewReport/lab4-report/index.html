@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&#x2F;&#x2F;sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管module decoder(    input wire [3:0] sw,    output reg[6:0] seg,">
+    <meta name="description" content="代码&#x2F;&#x2F;sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管 module decoder(     input wire [3:0] sw,     output reg[6:0] seg,     output reg[3:0] auto     );     always_comb begin&#x2F;&#x2F;根据输入选择对应的输出，具体的真值由真值表得到         case (">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lab4-report">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/04/26/Homework/PreviewReport/lab4-report/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&#x2F;&#x2F;sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管module decoder(    input wire [3:0] sw,    output reg[6:0] seg,">
+<meta property="og:description" content="代码&#x2F;&#x2F;sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管 module decoder(     input wire [3:0] sw,     output reg[6:0] seg,     output reg[3:0] auto     );     always_comb begin&#x2F;&#x2F;根据输入选择对应的输出，具体的真值由真值表得到         case (">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-26T10:49:34.000Z">
-<meta property="article:modified_time" content="2024-05-08T02:46:05.954Z">
+<meta property="article:modified_time" content="2024-07-06T06:43:14.019Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sw-input%E7%BB%91%E5%AE%9A%E8%BE%93%E5%85%A5%E7%9A%84%E5%AD%94-io14"><span class="nav-text">sw input&#x2F;&#x2F;绑定输入的孔 IO1:4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#seg-output%E7%BB%91%E5%AE%9A%E4%B8%8D%E5%B8%A6%E8%AF%91%E7%A0%81%E7%9A%84%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9A%84%E8%BE%93%E5%87%BA%E7%9A%84%E5%AD%94-io1420"><span class="nav-text">seg output&#x2F;&#x2F;绑定不带译码的数码管的输出的孔 IO14:20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6"><span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-08 10:46:05" itemprop="dateModified" datetime="2024-05-08T10:46:05+08:00">2024-05-08</time>
+      <time title="Modified: 2024-07-06 14:43:14" itemprop="dateModified" datetime="2024-07-06T14:43:14+08:00">2024-07-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>2.6k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -281,16 +281,82 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="代码">代码</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">//sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管</span><br><span class="line">module decoder(</span><br><span class="line">    input wire [3:0] sw,</span><br><span class="line">    output reg[6:0] seg,</span><br><span class="line">    output reg[3:0] auto</span><br><span class="line">    );</span><br><span class="line">    always_comb begin//根据输入选择对应的输出，具体的真值由真值表得到</span><br><span class="line">        case (sw)</span><br><span class="line">            4&#x27;h0: seg = 7&#x27;b1111110;</span><br><span class="line">            4&#x27;h1: seg = 7&#x27;b0110000;</span><br><span class="line">            4&#x27;h2: seg = 7&#x27;b1101101;</span><br><span class="line">            4&#x27;h3: seg = 7&#x27;b1111001;</span><br><span class="line">            4&#x27;h4: seg = 7&#x27;b0110011;</span><br><span class="line">            4&#x27;h5: seg = 7&#x27;b1011011;</span><br><span class="line">            4&#x27;h6: seg = 7&#x27;b1011111;</span><br><span class="line">            4&#x27;h7: seg = 7&#x27;b1110000;</span><br><span class="line">            4&#x27;h8: seg = 7&#x27;b1111111;</span><br><span class="line">            4&#x27;h9: seg = 7&#x27;b1110011;</span><br><span class="line">            4&#x27;hA: seg = 7&#x27;b1110111;</span><br><span class="line">            4&#x27;hB: seg = 7&#x27;b0011111;</span><br><span class="line">            4&#x27;hC: seg = 7&#x27;b1001110;</span><br><span class="line">            4&#x27;hD: seg = 7&#x27;b0111101;</span><br><span class="line">            4&#x27;hE: seg = 7&#x27;b1001111;</span><br><span class="line">            4&#x27;hF: seg = 7&#x27;b1000111;</span><br><span class="line">            default: seg = 7&#x27;b0; </span><br><span class="line">        endcase</span><br><span class="line">    end</span><br><span class="line">    always_comb begin//根据输入选择对应的输出，只需将16进制翻译成二进制即可</span><br><span class="line">        case (sw)</span><br><span class="line">            4&#x27;h0: auto = 4&#x27;b0000;</span><br><span class="line">            4&#x27;h1: auto = 4&#x27;b0001;</span><br><span class="line">            4&#x27;h2: auto = 4&#x27;b0010;</span><br><span class="line">            4&#x27;h3: auto = 4&#x27;b0011;</span><br><span class="line">            4&#x27;h4: auto = 4&#x27;b0100;</span><br><span class="line">            4&#x27;h5: auto = 4&#x27;b0101;</span><br><span class="line">            4&#x27;h6: auto = 4&#x27;b0110;</span><br><span class="line">            4&#x27;h7: auto = 4&#x27;b0111;</span><br><span class="line">            4&#x27;h8: auto = 4&#x27;b1000;</span><br><span class="line">            4&#x27;h9: auto = 4&#x27;b1001;</span><br><span class="line">            4&#x27;hA: auto = 4&#x27;b1010;</span><br><span class="line">            4&#x27;hB: auto = 4&#x27;b1011;</span><br><span class="line">            4&#x27;hC: auto = 4&#x27;b1100;</span><br><span class="line">            4&#x27;hD: auto = 4&#x27;b1101;</span><br><span class="line">            4&#x27;hE: auto = 4&#x27;b1110;</span><br><span class="line">            4&#x27;hF: auto = 4&#x27;b1111;</span><br><span class="line">            default: auto = 4&#x27;b0;</span><br><span class="line">        endcase</span><br><span class="line">     end</span><br><span class="line">endmodule</span><br><span class="line">```     </span><br><span class="line"></span><br><span class="line">## 限制     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="sw-input绑定输入的孔-io14">sw input//绑定输入的孔 IO1:4</h1>
-<p>set_property -dict {PACKAGE_PIN M21 IOSTANDARD LVCMOS33} [get_ports sw[3]]; set_property -dict {PACKAGE_PIN N20 IOSTANDARD LVCMOS33} [get_ports sw[2]]; set_property -dict {PACKAGE_PIN N22 IOSTANDARD LVCMOS33} [get_ports sw[1]]; set_property -dict {PACKAGE_PIN P21 IOSTANDARD LVCMOS33} [get_ports sw[0]];</p>
-<h1 id="seg-output绑定不带译码的数码管的输出的孔-io1420">seg output//绑定不带译码的数码管的输出的孔 IO14:20</h1>
-<p>set_property -dict {PACKAGE_PIN Y21 IOSTANDARD LVCMOS33} [get_ports seg[6]]; set_property -dict {PACKAGE_PIN AB22 IOSTANDARD LVCMOS33} [get_ports seg[5]]; set_property -dict {PACKAGE_PIN AA18 IOSTANDARD LVCMOS33} [get_ports seg[4]]; set_property -dict {PACKAGE_PIN AB18 IOSTANDARD LVCMOS33} [get_ports seg[3]]; set_property -dict {PACKAGE_PIN AA20 IOSTANDARD LVCMOS33} [get_ports seg[2]]; set_property -dict {PACKAGE_PIN AB21 IOSTANDARD LVCMOS33} [get_ports seg[1]]; set_property -dict {PACKAGE_PIN AA21 IOSTANDARD LVCMOS33} [get_ports seg[0]];</p>
-<p>//绑定带译码的译码管的输出的孔 IO7:10 set_property -dict {PACKAGE_PIN U21 IOSTANDARD LVCMOS33} [get_ports auto[3]]; set_property -dict {PACKAGE_PIN R21 IOSTANDARD LVCMOS33} [get_ports auto[2]]; set_property -dict {PACKAGE_PIN R22 IOSTANDARD LVCMOS33} [get_ports auto[1]]; set_property -dict {PACKAGE_PIN P20 IOSTANDARD LVCMOS33} [get_ports auto[0]];</p>
-<p>set_property CFGBVS VCCO [current_design] set_property CONFIG_VOLTAGE 3.3 [current_design] ```</p>
-<h1 id="遇到的问题">遇到的问题</h1>
-<p>复制粘贴的时候忘记把seg改为auto导致代码综合的时候报错，肉眼排查出代码的错误后改正。</p>
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="lang-verilog">//sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管
+module decoder(
+    input wire [3:0] sw,
+    output reg[6:0] seg,
+    output reg[3:0] auto
+    );
+    always_comb begin//根据输入选择对应的输出，具体的真值由真值表得到
+        case (sw)
+            4&#39;h0: seg = 7&#39;b1111110;
+            4&#39;h1: seg = 7&#39;b0110000;
+            4&#39;h2: seg = 7&#39;b1101101;
+            4&#39;h3: seg = 7&#39;b1111001;
+            4&#39;h4: seg = 7&#39;b0110011;
+            4&#39;h5: seg = 7&#39;b1011011;
+            4&#39;h6: seg = 7&#39;b1011111;
+            4&#39;h7: seg = 7&#39;b1110000;
+            4&#39;h8: seg = 7&#39;b1111111;
+            4&#39;h9: seg = 7&#39;b1110011;
+            4&#39;hA: seg = 7&#39;b1110111;
+            4&#39;hB: seg = 7&#39;b0011111;
+            4&#39;hC: seg = 7&#39;b1001110;
+            4&#39;hD: seg = 7&#39;b0111101;
+            4&#39;hE: seg = 7&#39;b1001111;
+            4&#39;hF: seg = 7&#39;b1000111;
+            default: seg = 7&#39;b0; 
+        endcase
+    end
+    always_comb begin//根据输入选择对应的输出，只需将16进制翻译成二进制即可
+        case (sw)
+            4&#39;h0: auto = 4&#39;b0000;
+            4&#39;h1: auto = 4&#39;b0001;
+            4&#39;h2: auto = 4&#39;b0010;
+            4&#39;h3: auto = 4&#39;b0011;
+            4&#39;h4: auto = 4&#39;b0100;
+            4&#39;h5: auto = 4&#39;b0101;
+            4&#39;h6: auto = 4&#39;b0110;
+            4&#39;h7: auto = 4&#39;b0111;
+            4&#39;h8: auto = 4&#39;b1000;
+            4&#39;h9: auto = 4&#39;b1001;
+            4&#39;hA: auto = 4&#39;b1010;
+            4&#39;hB: auto = 4&#39;b1011;
+            4&#39;hC: auto = 4&#39;b1100;
+            4&#39;hD: auto = 4&#39;b1101;
+            4&#39;hE: auto = 4&#39;b1110;
+            4&#39;hF: auto = 4&#39;b1111;
+            default: auto = 4&#39;b0;
+        endcase
+     end
+endmodule
+</code></pre>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><pre><code class="lang-verilog">//sw input 绑定输入的孔 IO1:4
+set_property -dict &#123;PACKAGE_PIN M21 IOSTANDARD LVCMOS33&#125; [get_ports sw[3]];
+set_property -dict &#123;PACKAGE_PIN N20 IOSTANDARD LVCMOS33&#125; [get_ports sw[2]];
+set_property -dict &#123;PACKAGE_PIN N22 IOSTANDARD LVCMOS33&#125; [get_ports sw[1]];
+set_property -dict &#123;PACKAGE_PIN P21 IOSTANDARD LVCMOS33&#125; [get_ports sw[0]];
+
+//seg output 绑定不带译码的数码管的输出的孔 IO14:20
+set_property -dict &#123;PACKAGE_PIN Y21 IOSTANDARD LVCMOS33&#125; [get_ports seg[6]];
+set_property -dict &#123;PACKAGE_PIN AB22 IOSTANDARD LVCMOS33&#125; [get_ports seg[5]];
+set_property -dict &#123;PACKAGE_PIN AA18 IOSTANDARD LVCMOS33&#125; [get_ports seg[4]];
+set_property -dict &#123;PACKAGE_PIN AB18 IOSTANDARD LVCMOS33&#125; [get_ports seg[3]];
+set_property -dict &#123;PACKAGE_PIN AA20 IOSTANDARD LVCMOS33&#125; [get_ports seg[2]];
+set_property -dict &#123;PACKAGE_PIN AB21 IOSTANDARD LVCMOS33&#125; [get_ports seg[1]];
+set_property -dict &#123;PACKAGE_PIN AA21 IOSTANDARD LVCMOS33&#125; [get_ports seg[0]];
+
+//绑定带译码的译码管的输出的孔 IO7:10
+set_property -dict &#123;PACKAGE_PIN U21 IOSTANDARD LVCMOS33&#125; [get_ports auto[3]];
+set_property -dict &#123;PACKAGE_PIN R21 IOSTANDARD LVCMOS33&#125; [get_ports auto[2]];
+set_property -dict &#123;PACKAGE_PIN R22 IOSTANDARD LVCMOS33&#125; [get_ports auto[1]];
+set_property -dict &#123;PACKAGE_PIN P20 IOSTANDARD LVCMOS33&#125; [get_ports auto[0]];
+
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+</code></pre>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>复制粘贴的时候忘记把seg改为auto导致代码综合的时候报错，肉眼排查出代码的错误后改正。</p>
 
     </div>
 
