@@ -266,13 +266,13 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -301,6 +301,107 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/05/12/Homework/xigai/readReport/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="QCY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QCY's blog">
+      <meta itemprop="description" content="blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | QCY's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/12/Homework/xigai/readReport/" class="post-title-link" itemprop="url">readReport</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-12 15:38:28 / Modified: 21:31:51" itemprop="dateCreated datePublished" datetime="2024-05-12T15:38:28+08:00">2024-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/12/Homework/xigai/readReport/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -491,81 +592,82 @@ mjx-container[display="true"] + br {
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="lang-verilog">//sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管
-module decoder(
-    input wire [3:0] sw,
-    output reg[6:0] seg,
-    output reg[3:0] auto
-    );
-    always_comb begin//根据输入选择对应的输出，具体的真值由真值表得到
-        case (sw)
-            4&#39;h0: seg = 7&#39;b1111110;
-            4&#39;h1: seg = 7&#39;b0110000;
-            4&#39;h2: seg = 7&#39;b1101101;
-            4&#39;h3: seg = 7&#39;b1111001;
-            4&#39;h4: seg = 7&#39;b0110011;
-            4&#39;h5: seg = 7&#39;b1011011;
-            4&#39;h6: seg = 7&#39;b1011111;
-            4&#39;h7: seg = 7&#39;b1110000;
-            4&#39;h8: seg = 7&#39;b1111111;
-            4&#39;h9: seg = 7&#39;b1110011;
-            4&#39;hA: seg = 7&#39;b1110111;
-            4&#39;hB: seg = 7&#39;b0011111;
-            4&#39;hC: seg = 7&#39;b1001110;
-            4&#39;hD: seg = 7&#39;b0111101;
-            4&#39;hE: seg = 7&#39;b1001111;
-            4&#39;hF: seg = 7&#39;b1000111;
-            default: seg = 7&#39;b0; 
-        endcase
-    end
-    always_comb begin//根据输入选择对应的输出，只需将16进制翻译成二进制即可
-        case (sw)
-            4&#39;h0: auto = 4&#39;b0000;
-            4&#39;h1: auto = 4&#39;b0001;
-            4&#39;h2: auto = 4&#39;b0010;
-            4&#39;h3: auto = 4&#39;b0011;
-            4&#39;h4: auto = 4&#39;b0100;
-            4&#39;h5: auto = 4&#39;b0101;
-            4&#39;h6: auto = 4&#39;b0110;
-            4&#39;h7: auto = 4&#39;b0111;
-            4&#39;h8: auto = 4&#39;b1000;
-            4&#39;h9: auto = 4&#39;b1001;
-            4&#39;hA: auto = 4&#39;b1010;
-            4&#39;hB: auto = 4&#39;b1011;
-            4&#39;hC: auto = 4&#39;b1100;
-            4&#39;hD: auto = 4&#39;b1101;
-            4&#39;hE: auto = 4&#39;b1110;
-            4&#39;hF: auto = 4&#39;b1111;
-            default: auto = 4&#39;b0;
-        endcase
-     end
-endmodule
-</code></pre>
-<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><pre><code class="lang-verilog">//sw input 绑定输入的孔 IO1:4
-set_property -dict &#123;PACKAGE_PIN M21 IOSTANDARD LVCMOS33&#125; [get_ports sw[3]];
-set_property -dict &#123;PACKAGE_PIN N20 IOSTANDARD LVCMOS33&#125; [get_ports sw[2]];
-set_property -dict &#123;PACKAGE_PIN N22 IOSTANDARD LVCMOS33&#125; [get_ports sw[1]];
-set_property -dict &#123;PACKAGE_PIN P21 IOSTANDARD LVCMOS33&#125; [get_ports sw[0]];
-
-//seg output 绑定不带译码的数码管的输出的孔 IO14:20
-set_property -dict &#123;PACKAGE_PIN Y21 IOSTANDARD LVCMOS33&#125; [get_ports seg[6]];
-set_property -dict &#123;PACKAGE_PIN AB22 IOSTANDARD LVCMOS33&#125; [get_ports seg[5]];
-set_property -dict &#123;PACKAGE_PIN AA18 IOSTANDARD LVCMOS33&#125; [get_ports seg[4]];
-set_property -dict &#123;PACKAGE_PIN AB18 IOSTANDARD LVCMOS33&#125; [get_ports seg[3]];
-set_property -dict &#123;PACKAGE_PIN AA20 IOSTANDARD LVCMOS33&#125; [get_ports seg[2]];
-set_property -dict &#123;PACKAGE_PIN AB21 IOSTANDARD LVCMOS33&#125; [get_ports seg[1]];
-set_property -dict &#123;PACKAGE_PIN AA21 IOSTANDARD LVCMOS33&#125; [get_ports seg[0]];
-
-//绑定带译码的译码管的输出的孔 IO7:10
-set_property -dict &#123;PACKAGE_PIN U21 IOSTANDARD LVCMOS33&#125; [get_ports auto[3]];
-set_property -dict &#123;PACKAGE_PIN R21 IOSTANDARD LVCMOS33&#125; [get_ports auto[2]];
-set_property -dict &#123;PACKAGE_PIN R22 IOSTANDARD LVCMOS33&#125; [get_ports auto[1]];
-set_property -dict &#123;PACKAGE_PIN P20 IOSTANDARD LVCMOS33&#125; [get_ports auto[0]];
-
-set_property CFGBVS VCCO [current_design]
-set_property CONFIG_VOLTAGE 3.3 [current_design]
-</code></pre>
-<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>复制粘贴的时候忘记把seg改为auto导致代码综合的时候报错，肉眼排查出代码的错误后改正。</p>
+<h1 id="代码">代码</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">//sw为开关的输入，seg为到不带译码的数码管，auto为带译码的数码管</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> decoder<span class="op">(</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">input</span> <span class="dt">wire</span> <span class="op">[</span><span class="dv">3</span><span class="op">:</span><span class="dv">0</span><span class="op">]</span> sw<span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">output</span> <span class="dt">reg</span><span class="op">[</span><span class="dv">6</span><span class="op">:</span><span class="dv">0</span><span class="op">]</span> seg<span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">output</span> <span class="dt">reg</span><span class="op">[</span><span class="dv">3</span><span class="op">:</span><span class="dv">0</span><span class="op">]</span> auto</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    always_comb <span class="kw">begin</span><span class="co">//根据输入选择对应的输出，具体的真值由真值表得到</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="op">(</span>sw<span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h0</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1111110</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h1</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b0110000</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h2</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1101101</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h3</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1111001</span><span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h4</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b0110011</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h5</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1011011</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h6</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1011111</span><span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h7</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1110000</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h8</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1111111</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h9</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1110011</span><span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hA</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1110111</span><span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hB</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b0011111</span><span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hC</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1001110</span><span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hD</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b0111101</span><span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hE</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1001111</span><span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hF</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b1000111</span><span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="kw">default</span><span class="op">:</span> seg <span class="op">=</span> <span class="bn">7&#39;b0</span><span class="op">;</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="kw">endcase</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    always_comb <span class="kw">begin</span><span class="co">//根据输入选择对应的输出，只需将16进制翻译成二进制即可</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="op">(</span>sw<span class="op">)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h0</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0000</span><span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h1</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0001</span><span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h2</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0010</span><span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h3</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0011</span><span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h4</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0100</span><span class="op">;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h5</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0101</span><span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h6</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0110</span><span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h7</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0111</span><span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h8</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1000</span><span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;h9</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1001</span><span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hA</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1010</span><span class="op">;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hB</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1011</span><span class="op">;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hC</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1100</span><span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hD</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1101</span><span class="op">;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hE</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1110</span><span class="op">;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>            <span class="bn">4&#39;hF</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b1111</span><span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>            <span class="kw">default</span><span class="op">:</span> auto <span class="op">=</span> <span class="bn">4&#39;b0</span><span class="op">;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="kw">endcase</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>     <span class="kw">end</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="kw">endmodule</span></span></code></pre></div>
+<h2 id="限制">限制</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">//sw input 绑定输入的孔 IO1:4</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN M21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports sw<span class="op">[</span><span class="dv">3</span><span class="op">]];</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN N20 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports sw<span class="op">[</span><span class="dv">2</span><span class="op">]];</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN N22 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports sw<span class="op">[</span><span class="dv">1</span><span class="op">]];</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN P21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports sw<span class="op">[</span><span class="dv">0</span><span class="op">]];</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">//seg output 绑定不带译码的数码管的输出的孔 IO14:20</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN Y21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">6</span><span class="op">]];</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AB22 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">5</span><span class="op">]];</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AA18 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">4</span><span class="op">]];</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AB18 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">3</span><span class="op">]];</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AA20 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">2</span><span class="op">]];</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AB21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">1</span><span class="op">]];</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN AA21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports seg<span class="op">[</span><span class="dv">0</span><span class="op">]];</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">//绑定带译码的译码管的输出的孔 IO7:10</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN U21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports auto<span class="op">[</span><span class="dv">3</span><span class="op">]];</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN R21 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports auto<span class="op">[</span><span class="dv">2</span><span class="op">]];</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN R22 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports auto<span class="op">[</span><span class="dv">1</span><span class="op">]];</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>set_property <span class="op">-</span>dict <span class="op">&#123;</span>PACKAGE_PIN P20 IOSTANDARD LVCMOS33<span class="op">&#125;</span> <span class="op">[</span>get_ports auto<span class="op">[</span><span class="dv">0</span><span class="op">]];</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>set_property CFGBVS VCCO <span class="op">[</span>current_design<span class="op">]</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>set_property CONFIG_VOLTAGE <span class="fl">3.3</span> <span class="op">[</span>current_design<span class="op">]</span></span></code></pre></div>
+<h1 id="遇到的问题">遇到的问题</h1>
+<p>复制粘贴的时候忘记把seg改为auto导致代码综合的时候报错，肉眼排查出代码的错误后改正。</p>
 
       
     </div>
@@ -2055,129 +2157,6 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/03/29/Homework/PreviewReport/lab2-report/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="QCY">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="QCY's blog">
-      <meta itemprop="description" content="blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | QCY's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/29/Homework/PreviewReport/lab2-report/" class="post-title-link" itemprop="url">lab2-report</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-03-29 20:38:42 / Modified: 20:53:35" itemprop="dateCreated datePublished" datetime="2024-03-29T20:38:42+08:00">2024-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>214</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="实验电路图">实验电路图</h1>
-<h2 id="实验1-cd4011平均延迟时间">实验1 CD4011平均延迟时间</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-2.png" /></p>
-<h3 id="接线图">接线图</h3>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-1.png" /><br />
-注意连接电源即可</p>
-<h2 id="实验二-cd4011电压传输特性">实验二 CD4011电压传输特性</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
-<p>接线图与实验一相同，只需额外将输出与电阻模块连接即可</p>
-<h2 id="实验三-74ls00电压传输特性">实验三 74LS00电压传输特性</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-3.png" /></p>
-<p>接线图与实验二相同</p>
-<h2 id="实验四-74ls00平均延迟时间">实验四 74LS00平均延迟时间</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/888fce958abbf89c616cd0913d7442e41dcf2556/homework/lab2-4.png" /></p>
-<h3 id="接线图-1">接线图</h3>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-2.png" /></p>
-<h1 id="测试波形图">测试波形图</h1>
-<h2 id="实验一">实验一</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-3.jpg" /></p>
-<h2 id="实验二">实验二</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-4.jpg" /></p>
-<h2 id="实验三">实验三</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-5.jpg" /></p>
-<h2 id="实验四">实验四</h2>
-<p><img data-src="https://github.com/qcy22/images/raw/b4c4781092c7f5d1a35b403266dd6fbefe9785ce/homework/post2-6.jpg" /></p>
-<h1 id="实验结果">实验结果</h1>
-<p><strong>CD4011平均延迟时间为50.5ns</strong></p>
-<p><strong>74LS00平均延迟时间为10.125ns</strong></p>
-<h1 id="性能比较">性能比较</h1>
-<p>TTL 与非门 74LS00 比 CMOS 与非门 CD4011 的平均延迟时间更短</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2202,14 +2181,14 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">126k</span>
+    <span title="Word count total">139k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:55</span>
+    <span title="Reading time total">2:06</span>
   </span>
 </div>
 <div class="busuanzi-count">
