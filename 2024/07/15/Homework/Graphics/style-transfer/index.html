@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="《计算机图形学》期末大作业，代码在github 复现 先执行bash train_all.sh进行模型微调，在..&#x2F;styles下生成bin文件， 之后运行python run_all.py在当前code文件夹下生成结果图片， 最后运行python changePic.py进行部分图片的替换。 原理 整体框架：DreamBooth-Lora 我们的整体框架依旧是Dreambooth-Lora的结构">
+    <meta name="description" content="《计算机图形学》期末大作业，代码在github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="style-transfer">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/07/15/Homework/Graphics/style-transfer/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="《计算机图形学》期末大作业，代码在github 复现 先执行bash train_all.sh进行模型微调，在..&#x2F;styles下生成bin文件， 之后运行python run_all.py在当前code文件夹下生成结果图片， 最后运行python changePic.py进行部分图片的替换。 原理 整体框架：DreamBooth-Lora 我们的整体框架依旧是Dreambooth-Lora的结构">
+<meta property="og:description" content="《计算机图形学》期末大作业，代码在github">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/8b2554daaca3dc7b97265f0b515cf0f022ab1a90/homework/jittor/Camera.png">
 <meta property="og:image" content="https://github.com/qcy22/qcy22.github.io.git/2024/07/15/Homework/Graphics/style-transfer/image.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://github.com/qcy22/images/raw/8b2554daaca3dc7b97265f0b515cf0f022ab1a90/homework/jittor/Cake.png">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/8b2554daaca3dc7b97265f0b515cf0f022ab1a90/homework/jittor/Lighthouse.png">
 <meta property="article:published_time" content="2024-07-15T02:17:04.000Z">
-<meta property="article:modified_time" content="2024-07-15T02:25:40.774Z">
+<meta property="article:modified_time" content="2024-07-16T16:09:59.195Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -280,7 +280,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -353,9 +353,15 @@ mjx-container[display="true"] + br {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-07-15 10:17:04 / Modified: 10:25:40" itemprop="dateCreated datePublished" datetime="2024-07-15T10:17:04+08:00">2024-07-15</time>
+      <time title="Created: 2024-07-15 10:17:04" itemprop="dateCreated datePublished" datetime="2024-07-15T10:17:04+08:00">2024-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-17 00:09:59" itemprop="dateModified" datetime="2024-07-17T00:09:59+08:00">2024-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -399,6 +405,7 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody"><p>《计算机图形学》期末大作业，代码在<a href="https://github.com/qcy22/Homework/tree/main/4/Computer%20Graphics">github</a></p>
+<span id="more"></span>
 <h2 id="复现">复现</h2>
 <p>先执行<code>bash train_all.sh</code>进行模型微调，在../styles下生成bin文件，<br>
 之后运行<code>python run_all.py</code>在当前code文件夹下生成结果图片，<br>
@@ -513,6 +520,9 @@ mjx-container[display="true"] + br {
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/07/15/Gen-AI/paper-reading2/" rel="next" title="paper-reading2">
+                  paper-reading2 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -544,14 +554,14 @@ mjx-container[display="true"] + br {
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">139k</span>
+    <span title="Word count total">145k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">2:06</span>
+    <span title="Reading time total">2:12</span>
   </span>
 </div>
 <div class="busuanzi-count">
