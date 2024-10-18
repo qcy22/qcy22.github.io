@@ -184,7 +184,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: EB Garamond, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -497,13 +497,29 @@ code.hljs {
   padding: 2px 6px;
   position: absolute;
   transition: opacity 0.2s ease-in-out;
-  background-color: #eee;
-  background-image: linear-gradient(#fcfcfc, #eee);
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-  font-size: 0.8125em;
-  right: 4px;
-  top: 8px;
+  color: var(--highlight-foreground);
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+figure.highlight {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+figure.highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
+figure.highlight::before {
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  border-radius: 50%;
+  content: ' ';
+  height: 12px;
+  width: 12px;
 }
 code,
 kbd,
@@ -540,7 +556,7 @@ pre figcaption a:hover {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+  font-family: Source Code Pro, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
 }
 code {
   border-radius: 3px;
@@ -1118,7 +1134,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Pacifico, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1249,6 +1265,10 @@ pre code {
   max-width: 120px;
   padding: 2px;
   border-radius: 50%;
+  transition: transform 1s ease-out;
+}
+.site-author-image:hover {
+  transform: rotateZ(360deg);
 }
 .site-author-name {
   color: var(--text-color);
@@ -1778,7 +1798,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -1964,7 +1984,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2417,7 +2437,7 @@ mark.search-keyword {
 }
 header.header {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 @media (max-width: 991px) {
@@ -2454,7 +2474,7 @@ header.header {
   }
 }
 .main-inner {
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
   box-sizing: border-box;
   width: calc(100% - 252px);
 }
@@ -2595,7 +2615,7 @@ header.header {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
@@ -2661,11 +2681,11 @@ header.header {
 .main-inner .comment-position .comments,
 .main-inner .pagination {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .main-inner .post-block:not(:first-child):not(:first-child) {
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2683,7 +2703,7 @@ header.header {
 .main-inner > .comments,
 .main-inner .comment-position .comments,
 .main-inner .pagination {
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2748,4 +2768,45 @@ header.header {
   .comments {
     padding: 10px 12px;
   }
+}
+code {
+  margin: 0px 4px;
+  font-size: 80%;
+}
+.post-body h1 {
+  font-family: Times New Roman, cursive, Trebuchet MS, Times New Roman, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  border-bottom-color: #0c302e;
+  background: url("/images/feather.svg") no-repeat;
+  padding-left: 48px;
+}
+.back-to-top {
+  border-radius: 100px;
+}
+.btn {
+  background: rgba(255,255,255,0.5);
+}
+.main-inner {
+  margin-top: 40px;
+}
+.header-inner {
+  margin-top: 20px;
+  border-radius: 25px 25px 20px 20px;
+}
+.header.header {
+  margin-top: 20px;
+  border-radius: 20px 20px 20px 20px;
+}
+.site-brand-container {
+  border-radius: 20px 20px 0px 0px;
+}
+.sidebar-inner {
+  background-color: transparent;
+  opacity: 0.9;
+  border-radius: 20px 20px 20px 20px;
+}
+.popup {
+  opacity: 1;
+}
+.post-block {
+  border-radius: 20px 20px 20px 20px;
 }

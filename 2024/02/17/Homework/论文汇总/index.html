@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CPacifico:300,300italic,400,400italic,700,700italic%7CEB+Garamond:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="汇总一下上大学以来写（水）过的论文们。">
 <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
 <meta property="article:published_time" content="2024-02-17T10:24:00.000Z">
 <meta property="article:modified_time" content="2024-06-02T03:31:51.465Z">
 <meta property="article:author" content="QCY">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="你注定学会潇洒">
 <meta name="twitter:card" content="summary">
 
 
@@ -79,6 +79,7 @@
       <p class="site-title">QCY's blog</p>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你注定学会潇洒</p>
   </div>
 
   <div class="site-nav-right">
@@ -151,13 +152,13 @@
     <img class="site-author-image" itemprop="image" alt="QCY"
       src="/images/myavatar.jpg">
   <p class="site-author-name" itemprop="name">QCY</p>
-  <div class="site-description" itemprop="description">blog</div>
+  <div class="site-description" itemprop="description">你注定学会潇洒</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,6 +177,279 @@
         <a href="mailto:2807721487@qq.com" title="E-Mail → mailto:2807721487@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
+<div style="margin-top: 10px">
+  <canvas id="canvas" style="width:58%;"></canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+
+<div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+<div class="site-overview">
+    
+
+
+
+</div>
+</div>
 
         </div>
       </div>
@@ -211,7 +485,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="QCY's blog">
-      <meta itemprop="description" content="blog">
+      <meta itemprop="description" content="你注定学会潇洒">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -285,32 +559,42 @@
 <span id="more"></span>
 <h1 id="大一上学期">大一上学期</h1>
 <h2 id="道德与法治">道德与法治</h2>
-<p><a href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%80%9D%E6%94%BF.pdf">道德与法治期末论文</a><br />
+<p><a
+href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%80%9D%E6%94%BF.pdf">道德与法治期末论文</a><br />
 因为疫情，获得了一次pf的机会，当机立断给了思政，论文纯水，没什么好说的（）。<br />
 也因为疫情，pre转线上了，甚至是提前录好放的录音，i人狂喜，当然最后结果也不是很好（）。</p>
 <h2 id="写作与沟通">写作与沟通</h2>
-<p><a href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8A%E5%86%99%E6%B2%9F%E7%BB%88%E7%A8%BF.pdf">写作与沟通终稿</a><br />
+<p><a
+href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8A%E5%86%99%E6%B2%9F%E7%BB%88%E7%A8%BF.pdf">写作与沟通终稿</a><br />
 上到大学以来第一次接受的系统性的写作训练，一定程度上摆脱了高中写八股文的束缚，转为更严谨的学术写作。选的主题是<strong>黄金</strong>，当了一个学期的<strong>炼金术士</strong>，虽然与专业没什么关系，但对后面水各种论文倒是帮助不浅。一个学期，从1k、2k写到5k+，对当时为800字抓耳挠腮的我来说也算一种别样的经历了。</p>
 <h1 id="大一下学期">大一下学期</h1>
 <h2 id="中国近现代史纲要">中国近现代史纲要</h2>
-<p><a href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%8F%B2%E7%BA%B2%E8%AE%BA%E8%BF%B0%E9%A2%98.pdf">史纲论述题</a><br />
+<p><a
+href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8B%E5%8F%B2%E7%BA%B2%E8%AE%BA%E8%BF%B0%E9%A2%98.pdf">史纲论述题</a><br />
 对于好久没碰过历史的我来说着实是有点困难了(┳Д┳)</p>
 <h2 id="科学哲学导论">科学哲学导论</h2>
-<p><a href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8B%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6%E5%AF%BC%E8%AE%BA.pdf">科学哲学导论论文</a><br />
+<p><a
+href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%B8%80%E4%B8%8B%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6%E5%AF%BC%E8%AE%BA.pdf">科学哲学导论论文</a><br />
 误打误撞选了这门课，起因是写写沟论文时，最后想上升到哲学层面，结果发现哲学素养浅薄，且<strong>科学</strong>说不定与炼金术有一定的关联，所以选了。间歇听懂间歇懵逼，因为不考勤，所以大学第一次逃课贡献给了这门课。<br />
 不过这种给分不明确的课放到现在估计是不会选了(´-灬-‘)</p>
 <h1 id="大二上">大二上</h1>
 <h2 id="马克思主义原理">马克思主义原理</h2>
-<p><a href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E9%A9%AC%E5%8E%9F.pdf">马原论文</a><br />
+<p><a
+href="https://github.com/qcy22/resources/blob/88ea398d9d637c41f0e6737c8c8161ac436d18ac/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E9%A9%AC%E5%8E%9F.pdf">马原论文</a><br />
 牵扯到哲学了，很难理解，写论文的时候也想了半天剩余价值这些东西，也纠结了半天人工智能到底能不能创造价值这个问题，现在大概也没搞懂。</p>
 <h1 id="大二下">大二下</h1>
 <h2 id="毛概">毛概</h2>
-<p><a href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%BE%E7%A8%8B%E5%8D%81%E9%97%AE.pdf">课程十问</a></p>
-<p><a href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%97%E6%AD%8C%E5%A4%A7%E4%BD%9C%E4%B8%9A.pdf">大作业</a></p>
-<p><a href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93.pdf">课程总结</a></p>
+<p><a
+href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%BE%E7%A8%8B%E5%8D%81%E9%97%AE.pdf">课程十问</a></p>
+<p><a
+href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%97%E6%AD%8C%E5%A4%A7%E4%BD%9C%E4%B8%9A.pdf">大作业</a></p>
+<p><a
+href="https://github.com/qcy22/resources/blob/873d71f4aa04e4eda79169cf2616582f91f2d96c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%AF%9B%E6%A6%82%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93.pdf">课程总结</a></p>
 <h2 id="习概">习概</h2>
-<p><a href="https://github.com/qcy22/resources/blob/7e06bd16b810982cc7bd995d0e6060f7c537e69c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E4%B9%A0%E6%A6%82%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A.pdf">读书报告</a></p>
-<p><a href="https://github.com/qcy22/resources/blob/7e06bd16b810982cc7bd995d0e6060f7c537e69c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E4%B9%A0%E6%A6%82%E5%A4%A7%E4%BD%9C%E4%B8%9A.pdf">大作业</a></p>
+<p><a
+href="https://github.com/qcy22/resources/blob/7e06bd16b810982cc7bd995d0e6060f7c537e69c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E4%B9%A0%E6%A6%82%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A.pdf">读书报告</a></p>
+<p><a
+href="https://github.com/qcy22/resources/blob/7e06bd16b810982cc7bd995d0e6060f7c537e69c/pdfs/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E4%B9%A0%E6%A6%82%E5%A4%A7%E4%BD%9C%E4%B8%9A.pdf">大作业</a></p>
 
     </div>
 
@@ -318,7 +602,11 @@
     
     
 
-    <footer class="post-footer">
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size: x-large; padding-top: 10px;"> --------- The End ---------  </div>
+    
+</div>
 
         
 
@@ -363,7 +651,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">202k</span>
+    <span title="Word count total">201k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
