@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+    <meta name="description" content="计算机组成原理笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="COD">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/09/12/Note/COD/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="计算机组成原理笔记">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-12T08:14:21.000Z">
-<meta property="article:modified_time" content="2024-09-12T09:56:17.168Z">
+<meta property="article:modified_time" content="2024-10-19T10:45:18.527Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="你注定学会潇洒">
 <meta name="twitter:card" content="summary">
@@ -242,7 +242,7 @@ mjx-container[display="true"] + br {
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -255,6 +255,7 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0"><span class="nav-text">计算机组成原理笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%AE%B2"><span class="nav-text">第一讲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E9%95%BF"><span class="nav-text">字长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E6%89%A9%E5%B1%95"><span class="nav-text">符号扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RISC-V%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-text">RISC-V指令集</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BFCPU"><span class="nav-text">流水线CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%98%B6%E6%AE%B5"><span class="nav-text">指令阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E8%AE%BE%E8%AE%A1"><span class="nav-text">指令设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%86%92%E9%99%A9"><span class="nav-text">流水线冒险</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -615,9 +616,15 @@ if(canvas.getContext){
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-09-12 16:14:21 / Modified: 17:56:17" itemprop="dateCreated datePublished" datetime="2024-09-12T16:14:21+08:00">2024-09-12</time>
+      <time title="Created: 2024-09-12 16:14:21" itemprop="dateCreated datePublished" datetime="2024-09-12T16:14:21+08:00">2024-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-19 18:45:18" itemprop="dateModified" datetime="2024-10-19T18:45:18+08:00">2024-10-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -643,7 +650,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>218</span>
+      <span>841</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -660,18 +667,64 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="13262b79246f34376d256416afa7c83a4e963ebe031e67cf2569a42772fdf4ec">1363a06ae91b2ed939e8c725ecb414e1dc4f9eac15473096557ec8d088820f9e715b2d715e39067d63165acd5ef5e9ec487e7d2495137a0f69f2aa071af0fa011fb7206c1d97f91395817243f68b79505503e86ac57b5703fde01f69265225a32ef47117f9dd201cdf5e8a577248e707c0a8786813d3386a0c48036ed0264044916ea67d32ee0e3dd137a43e472c237c753987faf1d5c1e1e3c84436314678bc29eed390e2cc0eab67fbbf2760b1556fbf450f0041115c1363a6be08361d3c917c4a7d29619cc327f3ffa7a4fa41c85f3bbe344cb27e04d9c6198aea59fc6a1b9b22de8f9cdc8b5acc5505f90cb3627bb67faac14bcd343ea818e6a7fffe55f17cdd64b788a6340c12005302ba37c42ec006e7fe55f7f3fd522d7aa1bd6efad946f0252ddd66fd0cd4a255220fed2ab4912be65e1859fac1a61bc74e3771080004bc9984b49345b65b285a1e706548ece89ec60c6f7d2763e816acbd2219bdbc34f477bfc39e05c31f257244d6a82b9525de41fdcd43fe5ca35ff24163a1d351e96d8ddc63e4360742024944559275b41411fb48c8b7dac8765df76f9e89a4edd71b7e6ca42b51dac992301abe31f499aadbc81b70c10a4d60796a6fee0e965deac7490676b927ffc3b80d46719feac397ed3c000d946aaf4896e1d270ed747f3be3b8e8d0331788a3b3a00140c7c2b959d7518e17cf0064de44ddad1d9d445fc0ca7045ca9f16f4417f12a62b45ff362949963f23ee33f595f44abe0c32e0c44b2b699f902cce0ee12e72e32fd1af5eb041b0eb12dfcd31b44e7423c751c4b500dde5f263a845f999f16d28f16d0f8a1b636c3d38b9f3fcbb52c9cb193627bd6c5f40576f2ff0da2adee3d20672ed2239da6bec8759309cbc6234d02dea49a65366337f4b71a417e60ed2b015ffd87b2b2a481ab4d6aacb75b6364d61813b5ece0db9b0f30db26f0022b3f3f1eb42acca15468f07ed26555c36238a3c186a7fc821bde06eb83f0158a18c32f17dc880a1aa37752ba160c6eec17dfe2ef9616e488d2f0a6aaa6f2825ba9eade4d9f2e85f79e57c8f2ed4f6f07cb8f46f0ebacdaa6a57925900c041fee3ca72d9438b025b04b241a4f3077ef6c5b39b8cdb0842b8c1d6b845224dc948a410f6b9f14a6276acd6fc5a1b58b82e79fd6e2ef22775c53b1e1ba57b5b94dc4a07a00ef0567d68c7d5253dcbb61565c3f7bd6b660d96c330c4df9799187021dd7b8615cd8d4a9a1c4f54dd5a92f332d6b585e7278832f2be0d359db73b577257c0bc769a0c4b6d6523696087a2b72d46923e1d0bbbe95eb54f4ed784aeb75174e752c6f36f30e8475d032643ef508179f720dd8c1ee90e1fc3e8ef4693e0e9b628740019a5ebd1f37438a758082c6a54775f658af981b182c4059a7c85252e24234082d97d10cad741403cc1aec42577fb9620033abca2dde392298e485b369e48183115a818f91862a828eaa84c40f9cdfb84c49bf5d039f34fb990aef047b1499bb0b8d25da69f2556b4657eccb03447e5e01a70d2fc966ce72b15e6b55f7b9ea98f928113</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    <div class="post-body" itemprop="articleBody"><h1 id="计算机组成原理笔记"><a href="#计算机组成原理笔记" class="headerlink" title="计算机组成原理笔记"></a>计算机组成原理笔记</h1><span id="more"></span>     
+<h1 id="第一讲"><a href="#第一讲" class="headerlink" title="第一讲"></a>第一讲</h1><h2 id="字长"><a href="#字长" class="headerlink" title="字长"></a>字长</h2><ol>
+<li><strong>机器字长</strong>：CPU进行一次整数运算所能处理的二进制数据的位数。        <ol>
+<li>CPU总线的宽度=运算器的位数=通用寄存器的宽度=数据总线的宽度=机器字长。     </li>
+<li>不加修饰的<strong>字长</strong>一般为机器字长。      </li>
+<li>内存中用于指明一个存储位置的地址经常是以字节为单位的。        </li>
+</ol>
+</li>
+<li><strong>存储字长</strong>：一个存储单元存储二进制代码的位数。             <ol>
+<li>一般存储字长小于等于机器字长      </li>
+</ol>
+</li>
+<li><strong>指令字长</strong>：一个指令字包含二进制代码的位数。        </li>
+</ol>
+<h2 id="符号扩展"><a href="#符号扩展" class="headerlink" title="符号扩展"></a>符号扩展</h2><p>保持数的值不变同时增加数的位数      </p>
+<h2 id="RISC-V指令集"><a href="#RISC-V指令集" class="headerlink" title="RISC-V指令集"></a>RISC-V指令集</h2><p><a target="_blank" rel="noopener" href="https://fmrt.gitbooks.io/riscv-spec-v2-cn/content/rv32i/int-comp-instrs.html">RISC-V指令集</a>       </p>
+<h1 id="流水线CPU"><a href="#流水线CPU" class="headerlink" title="流水线CPU"></a>流水线CPU</h1><h2 id="指令阶段"><a href="#指令阶段" class="headerlink" title="指令阶段"></a>指令阶段</h2><p>RISCV指令执行的五个步骤：  </p>
+<ol>
+<li>取指令（IF）：从内存中取出指令。    </li>
+<li>译码（ID）：读寄存器并译码指令，确定指令的操作码和操作数。     </li>
+<li>执行（EX）：根据操作码和操作数执行指令或计算地址。    </li>
+<li>访存（MEM）：如果指令需要访存，则进行访存操作。    </li>
+<li>写回（WB）：将结果写回寄存器。      </li>
+</ol>
+<h2 id="指令设计"><a href="#指令设计" class="headerlink" title="指令设计"></a>指令设计</h2><ol>
+<li><ul>
+<li><code>RISCV</code>所有指令等长，可以简化取指令和指令译码。   </li>
+<li>所以现代<code>x86</code>指令在实现时，先将变长指令转为类似<code>RISCV</code>的简单操作，再流水化这些简单操作。   </li>
+</ul>
+</li>
+<li><ul>
+<li><code>RISCV</code>中，存储器操作只出现在<code>load</code>和<code>store</code>指令中。所以可以用执行阶段计算存储器地址，下一阶段访问存储器。    </li>
+<li>在<code>x86</code>中，别的指令也可以访存，就需要扩展原先的三四阶段，扩展为地址计算、存储器访问、执行，会<strong>加长流水线</strong>。      </li>
+</ul>
+</li>
+</ol>
+<h2 id="流水线冒险"><a href="#流水线冒险" class="headerlink" title="流水线冒险"></a>流水线冒险</h2><p><strong>冒险</strong>：在下一个时钟周期下一条指令无法执行。      </p>
+<p>有三种冒险：      </p>
+<ol>
+<li><strong>结构冒险</strong>：硬件资源冲突，比如一条指令读存储器另一条写相同的存储器。      </li>
+<li><strong>数据冒险</strong>：一个步骤必须等待另一条指令完成。     <ol>
+<li>连续计算：一条加法指令之后跟着以加法和为操作数的指令。            <ol>
+<li>通过<strong>前递</strong>（or <strong>旁路</strong>）解决：执行阶段计算完毕后直接将数据给下一条指令。</li>
+</ol>
+</li>
+<li>载入-使用：一条载入指令之后跟着使用载入的数据的指令。    <ol>
+<li>不能通过前递解决，因为载入指令的数据在访存阶段才能得到，此时下一条指令已经在执行阶段。</li>
+<li>可以重排代码，提前load指令避免停顿。      </li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>控制冒险</strong>：分支指令的目标地址未知，需要等待分支指令执行完毕。      <ol>
+<li>通过<strong>分支预测</strong>解决：预测分支的目标地址，如果预测正确则不会有停顿。</li>
+</ol>
+</li>
+</ol>
+
     </div>
 
     
@@ -693,8 +746,8 @@ if(canvas.getContext){
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/29/Note/RL/" rel="next" title="RL">
-                  RL <i class="fa fa-angle-right"></i>
+                <a href="/2024/09/29/Note/RL/" rel="next" title="Reinforcement Learning">
+                  Reinforcement Learning <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -727,14 +780,14 @@ if(canvas.getContext){
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">201k</span>
+    <span title="Word count total">203k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">3:03</span>
+    <span title="Reading time total">3:04</span>
   </span>
 </div>
 <div class="busuanzi-count">
