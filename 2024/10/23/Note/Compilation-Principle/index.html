@@ -22,30 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hexo d 连接超时 回到学校执行hexo d出现问题：  百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。 修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
+    <meta name="description" content="编译原理的笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="problem2">
-<meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/02/24/Problems/problem2/index.html">
+<meta property="og:title" content="Compilation Principle">
+<meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/10/23/Note/Compilation-Principle/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="hexo d 连接超时 回到学校执行hexo d出现问题：  百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。 修改~&#x2F;.ssh&#x2F;config文件，添加 Host github.com          Hostname ssh.github.com          Port 443 问题解决">
+<meta property="og:description" content="编译原理的笔记">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png">
-<meta property="article:published_time" content="2024-02-24T09:03:29.000Z">
-<meta property="article:modified_time" content="2024-02-24T09:19:23.000Z">
+<meta property="article:published_time" content="2024-10-23T06:28:50.000Z">
+<meta property="article:modified_time" content="2024-10-23T06:30:50.269Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="你注定学会潇洒">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png">
 
 
-<link rel="canonical" href="https://github.com/qcy22/qcy22.github.io.git/2024/02/24/Problems/problem2/">
+<link rel="canonical" href="https://github.com/qcy22/qcy22.github.io.git/2024/10/23/Note/Compilation-Principle/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://github.com/qcy22/qcy22.github.io.git/2024/02/24/Problems/problem2/","path":"2024/02/24/Problems/problem2/","title":"problem2"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://github.com/qcy22/qcy22.github.io.git/2024/10/23/Note/Compilation-Principle/","path":"2024/10/23/Note/Compilation-Principle/","title":"Compilation Principle"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>problem2 | QCY's blog</title>
+<title>Compilation Principle | QCY's blog</title>
   
 
 
@@ -145,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-d-%E8%BF%9E%E6%8E%A5%E8%B6%85%E6%97%B6"><span class="nav-text">hexo d 连接超时</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="nav-text">编译原理的笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lr%E5%88%86%E6%9E%90"><span class="nav-text">LR分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lr%E5%88%86%E6%9E%90%E8%A1%A8"><span class="nav-text">LR分析表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%9B%BE"><span class="nav-text">转移图</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -478,7 +476,7 @@ if(canvas.getContext){
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/02/24/Problems/problem2/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/qcy22/qcy22.github.io.git/2024/10/23/Note/Compilation-Principle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/myavatar.jpg">
@@ -491,12 +489,12 @@ if(canvas.getContext){
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="problem2 | QCY's blog">
+      <meta itemprop="name" content="Compilation Principle | QCY's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          problem2
+          Compilation Principle
         </h1>
 
         <div class="post-meta-container">
@@ -508,7 +506,7 @@ if(canvas.getContext){
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-02-24 17:03:29 / Modified: 17:19:23" itemprop="dateCreated datePublished" datetime="2024-02-24T17:03:29+08:00">2024-02-24</time>
+      <time title="Created: 2024-10-23 14:28:50 / Modified: 14:30:50" itemprop="dateCreated datePublished" datetime="2024-10-23T14:28:50+08:00">2024-10-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -516,7 +514,7 @@ if(canvas.getContext){
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/problems/" itemprop="url" rel="index"><span itemprop="name">problems</span></a>
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
         </span>
     </span>
 
@@ -534,7 +532,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>129</span>
+      <span>135</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -551,14 +549,171 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="hexo-d-连接超时">hexo d 连接超时</h1>
-<p>回到学校执行<code>hexo d</code>出现问题： <img data-src="https://github.com/qcy22/images/raw/913ba317bb34945de84999ff8d16f34e7b454ccf/problems/port22.png" /><br />
-百度后发现是因为学校网络禁用了github的22端口，所以改用443端口。<br />
-修改~/.ssh/config文件，添加</p>
-<pre><code>Host github.com
-         Hostname ssh.github.com
-         Port 443</code></pre>
-<p>问题解决</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="编译原理的笔记">编译原理的笔记</h1>
+<span id="more"></span>
+<h2 id="lr分析">LR分析</h2>
+<h3 id="lr分析表">LR分析表</h3>
+<table>
+<thead>
+<tr class="header">
+<th>状态</th>
+<th>v</th>
+<th>d</th>
+<th>*</th>
+<th>+</th>
+<th>(</th>
+<th>#</th>
+<th>ACTION</th>
+<th>GOTO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>s5</td>
+<td>s6</td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>r2</td>
+<td>r2</td>
+<td>s7</td>
+<td>r2</td>
+<td></td>
+<td>acc</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>r4</td>
+<td>r4</td>
+<td>r4</td>
+<td>r4</td>
+<td></td>
+<td>r4</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>s5</td>
+<td>s6</td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>s5</td>
+<td>s6</td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td></td>
+<td></td>
+<td>s7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>r6</td>
+<td>r6</td>
+<td>r6</td>
+<td>r6</td>
+<td></td>
+<td>r6</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td>s8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>s5</td>
+<td>s6</td>
+<td></td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td>r3</td>
+<td></td>
+<td>r3</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td></td>
+<td></td>
+<td></td>
+<td>r1</td>
+<td></td>
+<td>r1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+<td>r5</td>
+<td></td>
+<td>r5</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td></td>
+<td></td>
+<td></td>
+<td>r3</td>
+<td></td>
+<td>r3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="转移图">转移图</h3>
 
     </div>
 
@@ -576,14 +731,11 @@ if(canvas.getContext){
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/02/22/Gen-AI/entropy/" rel="prev" title="entropy">
-                  <i class="fa fa-angle-left"></i> entropy
+                <a href="/2024/10/20/Note/SpinalHDL/" rel="prev" title="SpinalHDL">
+                  <i class="fa fa-angle-left"></i> SpinalHDL
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/02/25/Gen-AI/CNN/" rel="next" title="CNN">
-                  CNN <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
