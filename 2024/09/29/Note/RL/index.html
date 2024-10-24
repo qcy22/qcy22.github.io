@@ -30,7 +30,7 @@
 <meta property="og:description" content="Reinforcement Learning vs. Supervised machine learning">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-29T03:24:00.000Z">
-<meta property="article:modified_time" content="2024-10-19T08:30:45.407Z">
+<meta property="article:modified_time" content="2024-10-24T13:05:44.557Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="你注定学会潇洒">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,11 @@ mjx-container[display="true"] + br {
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reinforcement-learning-vs.-supervised-machine-learning"><span class="nav-text">Reinforcement
-Learning vs. Supervised machine learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#defination"><span class="nav-text">Defination</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#multi-armed-bandit"><span class="nav-text">Multi-Armed Bandit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lower-regret-bound"><span class="nav-text">Lower regret bound</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probability"><span class="nav-text">probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bandit-problem-with-algorithm-explration-and-exploitation"><span class="nav-text">bandit
+Learning vs. Supervised machine learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">
+Reinforcement Learning
+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">
+Supervised Machine Learning
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#defination"><span class="nav-text">Defination</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#multi-armed-bandit"><span class="nav-text">Multi-Armed Bandit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lower-regret-bound"><span class="nav-text">Lower regret bound</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probability"><span class="nav-text">probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bandit-problem-with-algorithm-explration-and-exploitation"><span class="nav-text">bandit
 problem with algorithm &quot;explration and exploitation&quot;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ucb-algorithm"><span class="nav-text">UCB algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#derivation"><span class="nav-text">derivation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epoch-greedy-algorithm"><span class="nav-text">epoch-greedy algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epsilon-greedy-algorithm"><span class="nav-text">-greedy algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#contextual-bandit"><span class="nav-text">Contextual bandit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#regret-bound"><span class="nav-text">regret bound</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linucb"><span class="nav-text">LinUCB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lints"><span class="nav-text">LinTS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#perturbation-based"><span class="nav-text">Perturbation-based</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
@@ -626,7 +630,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-19 16:30:45" itemprop="dateModified" datetime="2024-10-19T16:30:45+08:00">2024-10-19</time>
+      <time title="Modified: 2024-10-24 21:05:44" itemprop="dateModified" datetime="2024-10-24T21:05:44+08:00">2024-10-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -652,14 +656,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>5.4k</span>
+      <span>4.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -674,56 +678,44 @@ Learning vs. Supervised machine learning</h1>
 <span id="more"></span>
 <div style="display: flex; justify-content: space-between;">
 <div style="width: 45%;">
-<pre><code>&lt;h2&gt;Reinforcement Learning&lt;/h2&gt;
-&lt;ul style="list-style-type: disc; padding-left: 20px;"&gt;
-  &lt;li&gt;Reward&lt;/li&gt;
-  &lt;li&gt;Partial information&lt;/li&gt;
-  &lt;li&gt;Delayed consequence&lt;/li&gt;
-  &lt;li&gt;Agent’s choice affects the subsequent data it receives, i.e., non-i.i.d.&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<h2>
+Reinforcement Learning
+</h2>
+<ul style="list-style-type: disc; padding-left: 20px;">
+<li>
+Reward
+</li>
+<li>
+Partial information
+</li>
+<li>
+Delayed consequence
+</li>
+<li>
+Agent’s choice affects the subsequent data it receives, i.e., non-i.i.d.
+</li>
+</ul>
 </div>
 <div style="width: 45%;">
-<pre><code>&lt;h2&gt;Supervised Machine Learning&lt;/h2&gt;
-&lt;ul style="list-style-type: disc; padding-left: 20px;"&gt;
-  &lt;li&gt;Ground-truth labels&lt;/li&gt;
-  &lt;li&gt;Full information&lt;/li&gt;
-  &lt;li&gt;Immediate consequence&lt;/li&gt;
-  &lt;li&gt;Pre-determined data distribution, i.e., i.i.d.&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<h2>
+Supervised Machine Learning
+</h2>
+<ul style="list-style-type: disc; padding-left: 20px;">
+<li>
+Ground-truth labels
+</li>
+<li>
+Full information
+</li>
+<li>
+Immediate consequence
+</li>
+<li>
+Pre-determined data distribution, i.e., i.i.d.
+</li>
+</ul>
 </div>
 </div>
-<table>
-<colgroup>
-<col style="width: 45%">
-<col style="width: 54%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Reinforcement Learning</th>
-<th style="text-align: center;">Supervised Machine Learning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Reward</td>
-<td style="text-align: center;">Ground-truth labels</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Partial information</td>
-<td style="text-align: center;">Full information</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Delayed consequence</td>
-<td style="text-align: center;">Immediate consequence</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Agent’s choice affects the subsequent
-data it receives, i.e., non-i.i.d.</td>
-<td style="text-align: center;">Pre-determined data distribution, i.e.,
-i.i.d.</td>
-</tr>
-</tbody>
-</table>
 <h1 id="defination">Defination</h1>
 <ul>
 <li><strong>Observations</strong>: <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.863ex" height="1.355ex" role="img" focusable="false" viewBox="0 -441 823.3 598.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(518,-150) scale(0.707)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g></g></g></g></svg></mjx-container></span><br>
@@ -903,14 +895,14 @@ regret</strong>.</p>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">209k</span>
+    <span title="Word count total">208k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">3:10</span>
+    <span title="Reading time total">3:09</span>
   </span>
 </div>
 <div class="busuanzi-count">
