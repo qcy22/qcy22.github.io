@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">编译原理的笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LR%E5%88%86%E6%9E%90"><span class="nav-text">LR分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LR%E5%88%86%E6%9E%90%E8%A1%A8"><span class="nav-text">LR分析表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%9B%BE"><span class="nav-text">转移图</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="nav-text">编译原理的笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lr%E5%88%86%E6%9E%90"><span class="nav-text">LR分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lr%E5%88%86%E6%9E%90%E8%A1%A8"><span class="nav-text">LR分析表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%9B%BE"><span class="nav-text">转移图</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -555,13 +555,13 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>编译原理的笔记</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="编译原理的笔记">编译原理的笔记</h1>
 <span id="more"></span>
-<h2 id="LR分析">LR分析</h2>
-<h3 id="LR分析表">LR分析表</h3>
+<h2 id="lr分析">LR分析</h2>
+<h3 id="lr分析表">LR分析表</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>状态</th>
 <th>v</th>
 <th>d</th>
@@ -574,7 +574,7 @@ if(canvas.getContext){
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>s5</td>
 <td>s6</td>
@@ -585,7 +585,7 @@ if(canvas.getContext){
 <td></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>r2</td>
 <td>r2</td>
@@ -596,7 +596,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td>r4</td>
 <td>r4</td>
@@ -607,7 +607,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td>s5</td>
 <td>s6</td>
@@ -618,7 +618,7 @@ if(canvas.getContext){
 <td></td>
 <td>10</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td>s5</td>
 <td>s6</td>
@@ -629,7 +629,7 @@ if(canvas.getContext){
 <td></td>
 <td>11</td>
 </tr>
-<tr>
+<tr class="even">
 <td>5</td>
 <td></td>
 <td></td>
@@ -640,7 +640,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>6</td>
 <td>r6</td>
 <td>r6</td>
@@ -651,7 +651,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>7</td>
 <td></td>
 <td></td>
@@ -662,7 +662,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>8</td>
 <td>s5</td>
 <td>s6</td>
@@ -673,7 +673,7 @@ if(canvas.getContext){
 <td></td>
 <td>12</td>
 </tr>
-<tr>
+<tr class="even">
 <td>9</td>
 <td></td>
 <td></td>
@@ -684,7 +684,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>10</td>
 <td></td>
 <td></td>
@@ -695,7 +695,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>11</td>
 <td></td>
 <td></td>
@@ -706,7 +706,7 @@ if(canvas.getContext){
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>12</td>
 <td></td>
 <td></td>

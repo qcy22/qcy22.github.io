@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">安装openGL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">使用gtkwave</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">markdown解析</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ts"><span class="nav-text">ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85opengl"><span class="nav-text">安装openGL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8gtkwave"><span class="nav-text">使用gtkwave</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown%E8%A7%A3%E6%9E%90"><span class="nav-text">markdown解析</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -555,28 +555,29 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>ts</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="ts">ts</h1>
 <p>写ts小作业遇到一个很奇怪的bug，</p>
 <span id="more"></span>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index表示现在正在找第几个Mentsu,hand是当前剩下的牌</span></span><br><span class="line"><span class="keyword">const</span> findMentsu = (<span class="attr">hand</span>: <span class="title class_">Hand</span>, <span class="attr">index</span>: <span class="built_in">number</span>, <span class="attr">agari</span>: <span class="title class_">Agari</span>): [<span class="built_in">boolean</span>, <span class="title class_">Agari</span>[]] =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="literal">true</span>, [agari]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">all_success</span>: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="attr">result</span>: <span class="title class_">Agari</span>[] = [];</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (hand[i].<span class="property">count</span> &lt; <span class="number">1</span>) &#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hand[i].<span class="property">count</span> &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> handCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(hand));</span><br><span class="line">        handCopy[i].<span class="property">count</span> -= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">const</span> [success, agari_temp1] = <span class="title function_">findMentsu</span>(handCopy, index + <span class="number">1</span>, agari);</span><br><span class="line">        <span class="keyword">if</span> (success)<span class="comment">//</span></span><br><span class="line">        &#123;</span><br><span class="line">            all_success = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; agari_temp1.<span class="property">length</span>; j++) &#123;</span><br><span class="line">                agari_temp1[j][index] = &#123; <span class="attr">base</span>: hand[i].<span class="property">base</span>, <span class="attr">type</span>: <span class="string">&quot;Kotsu&quot;</span> &#125;;</span><br><span class="line">                result.<span class="title function_">push</span>(agari_temp1[j])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; hand.<span class="property">length</span> - <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (hand[i].<span class="property">count</span> &gt;= <span class="number">1</span> &amp;&amp; (hand[i + <span class="number">1</span>].<span class="property">base</span> == hand[i].<span class="property">base</span> + <span class="number">1</span>) &amp;&amp; hand[i + <span class="number">1</span>].<span class="property">count</span> &gt;= <span class="number">1</span> &amp;&amp; (hand[i + <span class="number">2</span>].<span class="property">base</span> == hand[i].<span class="property">base</span> + <span class="number">2</span>) &amp;&amp; hand[i + <span class="number">2</span>].<span class="property">count</span> &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> handCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(hand));</span><br><span class="line">            handCopy[i].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            handCopy[i + <span class="number">1</span>].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            handCopy[i + <span class="number">2</span>].<span class="property">count</span> -= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">const</span> [success, agari_temp2] = <span class="title function_">findMentsu</span>(handCopy, index + <span class="number">1</span>, agari);</span><br><span class="line">            <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                all_success = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; agari_temp2.<span class="property">length</span>; j++) &#123;</span><br><span class="line">                    agari_temp2[j][index] = &#123; <span class="attr">base</span>: hand[i].<span class="property">base</span>, <span class="attr">type</span>: <span class="string">&quot;Shuntsu&quot;</span> &#125;;</span><br><span class="line">                    result.<span class="title function_">push</span>(agari_temp2[j])</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (all_success == <span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="literal">true</span>, result];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="literal">false</span>, [agari]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>发现递归调用findMentsu函数后，原母函数的result发生了改变，导致结果不正确。<br>
-将<code>result.push(agari_temp1[j])</code>改为<code>result.push([agari_temp2[j][0], agari_temp2[j][1], agari_temp2[j][2], agari_temp2[j][3], agari_temp2[j][4]])</code>后，问题解决。<br>
+<p>发现递归调用findMentsu函数后，原母函数的result发生了改变，导致结果不正确。<br />
+将<code>result.push(agari_temp1[j])</code>改为<code>result.push([agari_temp2[j][0], agari_temp2[j][1], agari_temp2[j][2], agari_temp2[j][3], agari_temp2[j][4]])</code>后，问题解决。<br />
 但是不知道为出了bug，目前可以确定是因为<code>agari_temp1[j]</code>被递归函数改变，导致result发生改变，但是还不知道为什么<code>agari_temp1[j]</code>会被改变。</p>
-<h1>安装openGL</h1>
+<h1 id="安装opengl">安装openGL</h1>
 <p>pdf上写<code>在Ubuntu 上使用cat /etc/resolv.conf 查看ip 地址</code>,查看得为127.0.0.42，但是没成功，改用<code>ip addr</code>在inet段查得为127.0.0.1，成功。</p>
-<h1>使用gtkwave</h1>
+<h1 id="使用gtkwave">使用gtkwave</h1>
 <p>在linux上使用gtkwave需要图形化界面</p>
-<ol>
-<li><code>export DISPLAY=127.0.0.1:0</code></li>
-<li>在Windows上打开<code>XLaunch</code></li>
+<ol type="1">
+<li><code>export DISPLAY=127.0.0.1:0</code><br />
+</li>
+<li>在Windows上打开<code>XLaunch</code><br />
+</li>
 <li><code>gtkwave *.vcd/fst</code></li>
 </ol>
-<h1>markdown解析</h1>
-<p>之前在md文件里裸写html，传到总是非正常渲染。F12查看后是被渲染为了code块。<br>
+<h1 id="markdown解析">markdown解析</h1>
+<p>之前在md文件里裸写html，传到总是非正常渲染。F12查看后是被渲染为了code块。<br />
 一查发现<strong>4个空格的缩进</strong>会被理解为<strong>代码块</strong>，奇怪的markdown知识增加了。</p>
 <p>试一试缩进</p>
-<pre><code>int a=1;        
-</code></pre>
+<pre><code>int a=1;        </code></pre>
 <p>这下用html整花活就没有后顾之忧了。</p>
 
     </div>

@@ -11,10 +11,43 @@
             overflow: hidden;
             margin: 0;
         }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: 2px solid #bc5ffb; /* 紫色边框 */
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000; /* 确保按钮在最上层 */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #bc5ffb; /* 紫色背景 */
+            color: white;
+            border-color: #4b0082; /* 深紫色边框 */
+        }
+
+
     </style>
 </head>
 
 <body>
+    
+    <button class="back-button" onclick="goBack()">Return</button>
+
+    <script>
+        // 定义返回函数
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
     <script type="module">
         // 导入三维模型库
         import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
