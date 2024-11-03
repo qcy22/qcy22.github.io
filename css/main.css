@@ -890,6 +890,11 @@ pre code {
 .post-body .note.danger h6 {
   color: #d9534f;
 }
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 500px;
+  width: 100%;
+}
 .post-body .tabs {
   margin-bottom: 20px;
 }
@@ -2818,14 +2823,10 @@ code {
 .sidebar-inner {
   border-radius: 20px 20px 20px 20px;
 }
-.popup {
-  opacity: 0.9;
-}
 .post-block {
   border-radius: 20px 20px 20px 20px;
 }
 .post-title-link {
-  font-size: 24px;
   font-weight: bold;
 }
 .site-title {
