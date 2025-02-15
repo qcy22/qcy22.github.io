@@ -1,0 +1,26 @@
+/*引用*/
+blockquote {
+    border-left: 4px solid #000000;
+    padding: 0 15px;
+    margin: 15px 0;
+    background-color: #f5f5f5;
+    opacity: 0.9;
+}
+
+/*展示好多图片，会折叠*/
+.my-overflow-image {
+    height: 550px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    opacity: 1.0;
+}
+
+/*展示一大段文字*/
+.my-word-card {
+    border: 3px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
