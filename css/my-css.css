@@ -6,6 +6,17 @@ blockquote {
     background-color: rgba(245, 245, 245, 0.9);
 }
 
+/*图片*/
+img {
+    border-radius: 15px;
+}
+
+video {
+    border-radius: 15px;
+}
+
+
+
 /*展示好多图片，会折叠*/
 .my-overflow-image {
     height: 550px;
@@ -13,13 +24,23 @@ blockquote {
     border: 1px solid #ccc;
     padding: 10px;
     opacity: 1.0;
+    border-radius: 15px;
 }
 
 /*展示一大段文字*/
 .my-word-card {
     border: 3px solid #ddd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 20px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*两列展示*/
+.my-two-column {
+    display: flex;
+    gap: 20px;
+}
+.my-column {
+    flex: var(--my-width, 1);
 }
