@@ -30,7 +30,7 @@
 <meta property="og:description" content="RCore">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-20T12:54:40.000Z">
-<meta property="article:modified_time" content="2025-02-20T12:57:16.435Z">
+<meta property="article:modified_time" content="2025-02-22T13:39:32.459Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="考完放假版">
 <meta name="twitter:card" content="summary">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rcore"><span class="nav-text">RCore</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ch1"><span class="nav-text">ch1</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rcore"><span class="nav-text">RCore</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ch1"><span class="nav-text">ch1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ch2"><span class="nav-text">ch2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ch3"><span class="nav-text">ch3</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -511,9 +511,15 @@ if(canvas.getContext){
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-02-20 20:54:40 / Modified: 20:57:16" itemprop="dateCreated datePublished" datetime="2025-02-20T20:54:40+08:00">2025-02-20</time>
+      <time title="Created: 2025-02-20 20:54:40" itemprop="dateCreated datePublished" datetime="2025-02-20T20:54:40+08:00">2025-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-22 21:39:32" itemprop="dateModified" datetime="2025-02-22T21:39:32+08:00">2025-02-22</time>
     </span>
 
   
@@ -530,7 +536,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>114</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -555,6 +561,39 @@ if(canvas.getContext){
 <code>x86_64</code>，CPU 厂商是 <code>unknown</code>，操作系统是
 <code>linux</code>，运行时库是 <code>gnu libc</code>。
 诶这不是四个吗</p>
+<h1 id="ch2">ch2</h1>
+<ul>
+<li>出现trap时跳转到<code>__alltraps</code>函数，这个函数会保存当时的运行快照到内核栈，因此一个程序就要配一个内核栈。
+<ul>
+<li>运行快照，程序中叫<code>trapcontext</code>，32个寄存器+sstatus+sepc，后两个保存是因为返回的时候要用到，别的csr都是立刻要用的<br />
+</li>
+<li>疑问：不用考虑中断吗，考虑中断的话感觉也要保存别的csr，因为可能打开中断后还没到trap_handler就中断走了</li>
+</ul></li>
+<li>trap_handler返回后会从<code>__restore</code>开始执行，操作为恢复trap前的状态，并回到U态。
+<ul>
+<li>值得注意的是<code>__restore</code>第一步是<code>mv sp, a0</code>，对于从trap_handler返回的情况，这一步是不必须的，因为sp的值不会被改变（栈的特性决定的），a0的值就是sp的值（trap_handler返回值就是参数的值）。但是<code>__restore</code>还可能是最初启动的入口，此时sp要被设置为第一个app的内核栈</li>
+</ul></li>
+<li><code>sscratch</code>在app运行时需要保持为内核栈的栈顶，以便发生trap可以保存快照
+<ul>
+<li><code>__restore(KERNEL_STACK.push_context(TrapContext::app_init_context(APP_BASE_ADDRESS,USER_STACK.get_sp(),)) as *const _ as usize);</code>这一步写了sscratch，因为app_init_context先将sp写为用户栈顶，push_context将新的trap_context写入内核栈，返回内核栈栈顶，作为参数传给__restore。这个函数中可以读取用户栈栈顶的值，再把sp和sscratch交换，就实现了sscratch为内核栈栈顶值的目标</li>
+</ul></li>
+</ul>
+<h1 id="ch3">ch3</h1>
+<ul>
+<li>前一章的程序是顺序执行，同一时刻内存中只有一个程序在跑。这一章内存中有所有的程序。<br />
+</li>
+<li>不同任务的切换是主动调用_switch进行的，因为是call这个函数，所以被调用者保存的寄存器不需要再手动保存了。其余需要保存的还有ra（初始化为__restore，还没想明白为什么）和sp（指的是内核栈的位置）<br />
+</li>
+<li>每次调用__switch，next
+app是恢复之前保存的ra继续执行。而追溯到保存ra的时候，这个ra就是此时调用__switch的ra，即在run_next_task的下一条指令，所以新的app会退出run_next_task，执行yield的下一条指令。
+<ul>
+<li>这样就能明白为什么要把task的ra初始化为__restore，为了第一次进入app，会先调用__switch，进而进入__restore函数<br />
+</li>
+</ul></li>
+<li>这里直接忽略了同级的嵌套中断，因为不会手动打开中断开关<br />
+</li>
+<li>如果trap后切换到另一个app，什么时候从S态切换到U态</li>
+</ul>
 
     </div>
 
@@ -608,14 +647,14 @@ if(canvas.getContext){
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">256k</span>
+    <span title="Word count total">257k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">3:52</span>
+    <span title="Reading time total">3:53</span>
   </span>
 </div>
 <div class="busuanzi-count">
