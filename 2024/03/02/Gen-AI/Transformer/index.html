@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://github.com/qcy22/images/raw/157e625a51f78410d5511f3d7563ddb8f9654950/Gen-AI/multi-head.png">
 <meta property="og:image" content="https://github.com/qcy22/images/raw/84124a496f400272e6ff8feed63eae9535795891/note/summer%20school/multi-head.png">
 <meta property="article:published_time" content="2024-03-02T03:00:52.000Z">
-<meta property="article:modified_time" content="2024-07-15T02:30:15.134Z">
+<meta property="article:modified_time" content="2025-02-26T15:07:39.340Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="考完放假版">
 <meta name="twitter:card" content="summary">
@@ -261,7 +261,7 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-text">计算过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A4%E4%BB%A5%E6%A0%B9%E5%8F%B7d"><span class="nav-text">除以根号d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%A4%B4multi-head-attention"><span class="nav-text">多头multi-head attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feed-forward-neural-network"><span class="nav-text">Feed-Forward Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-normalization"><span class="nav-text">Layer Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#positional-encoding"><span class="nav-text">positional encoding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flops%E8%AE%A1%E7%AE%97"><span class="nav-text">FLOPS计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#q1"><span class="nav-text">Q1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q2"><span class="nav-text">Q2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.1"><span class="nav-text">Q2.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.2"><span class="nav-text">Q2.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.3"><span class="nav-text">Q2.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q3"><span class="nav-text">Q3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q4"><span class="nav-text">Q4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q5"><span class="nav-text">Q5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chatglm%E5%8F%82%E6%95%B0"><span class="nav-text">chatglm参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-text">对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#transformer%E4%B8%8Ecnn"><span class="nav-text">Transformer与CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transformer%E4%B8%8Ernn"><span class="nav-text">Transformer与RNN</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-text">计算过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A4%E4%BB%A5%E6%A0%B9%E5%8F%B7d"><span class="nav-text">除以根号d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%A4%B4multi-head-attention"><span class="nav-text">多头multi-head attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feed-forward-neural-network"><span class="nav-text">Feed-Forward Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-normalization"><span class="nav-text">Layer Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#positional-encoding"><span class="nav-text">positional encoding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flops%E8%AE%A1%E7%AE%97"><span class="nav-text">FLOPS计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#q1"><span class="nav-text">Q1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q2"><span class="nav-text">Q2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.1"><span class="nav-text">Q2.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.2"><span class="nav-text">Q2.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q2.3"><span class="nav-text">Q2.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q3"><span class="nav-text">Q3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q4"><span class="nav-text">Q4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q5"><span class="nav-text">Q5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chatglm%E5%8F%82%E6%95%B0"><span class="nav-text">chatglm参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-text">对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#transformer%E4%B8%8Ecnn"><span class="nav-text">Transformer与CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transformer%E4%B8%8Ernn"><span class="nav-text">Transformer与RNN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dit-%E5%8F%82%E6%95%B0"><span class="nav-text">DIT 参数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -276,7 +276,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -637,7 +637,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-15 10:30:15" itemprop="dateModified" datetime="2024-07-15T10:30:15+08:00">2024-07-15</time>
+      <time title="Modified: 2025-02-26 23:07:39" itemprop="dateModified" datetime="2025-02-26T23:07:39+08:00">2025-02-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -663,14 +663,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>4.8k</span>
+      <span>6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -830,6 +830,62 @@ Transformer相较于CNN有更多参数，因此简单数据集上CNN效果好，
 <li>可以注意到相隔很远的词，因为会对所有向量计算相关性。（也因此参数多，也有给Transformer设置窗口提升训练速度的操作）</li>
 <li>可以并行计算（本质是矩阵乘法）</li>
 </ul>
+<h1 id="dit-参数">DIT 参数</h1>
+<p>分析DiT (Diffusion Transformer) 模型的参数量与给定参数的关系：</p>
+<p>主要影响DiT参数量的因素包括：</p>
+<ul>
+<li>num_layers: 模型层数</li>
+<li>num_attention_heads: 注意力头数</li>
+<li>attention_head_dim: 每个注意力头的维度</li>
+<li>joint_attention_dim: 联合注意力维度 (FFN隐藏层维度)</li>
+<li>in_channels/out_channels: 输入/输出通道数</li>
+<li>patch_size: 图像分块大小</li>
+<li>sample_size: 样本大小</li>
+<li>caption_projection_dim: 文本投影维度</li>
+<li>pooled_projection_dim: 池化投影维度</li>
+</ul>
+<p>DiT模型的参数量数学表达式：</p>
+<p>首先计算隐藏维度： hidden_dim = num_attention_heads ×
+attention_head_dim</p>
+<p>总参数量主要由以下部分组成：</p>
+<ul>
+<li>图像patch嵌入参数：
+<ul>
+<li>patch_embed_params = in_channels × (patch_size²) × hidden_dim +
+hidden_dim</li>
+</ul></li>
+<li>位置嵌入参数（与位置嵌入最大尺寸相关）：
+<ul>
+<li>pos_embed_params = (sample_size/patch_size)² × hidden_dim</li>
+</ul></li>
+<li>Transformer层参数（线性关系）：
+<ul>
+<li>每层参数量 = 4 × hidden_dim² (多头注意力) + 2 × hidden_dim ×
+joint_attention_dim + 3 × hidden_dim (FFN和层归一化)</li>
+<li>transformer_params = num_layers × (4 × hidden_dim² + 2 × hidden_dim
+× joint_attention_dim + 3 × hidden_dim)</li>
+</ul></li>
+<li>输出投影参数：
+<ul>
+<li>output_params = hidden_dim × out_channels × patch_size²</li>
+</ul></li>
+<li>文本和池化投影参数：
+<ul>
+<li>projection_params = hidden_dim × caption_projection_dim + hidden_dim
+× pooled_projection_dim</li>
+</ul></li>
+<li>总参数量 = patch_embed_params + pos_embed_params +
+transformer_params + output_params + projection_params</li>
+</ul>
+<p>参数量与各因素的关系：</p>
+<ul>
+<li>与num_layers成线性关系</li>
+<li>与num_attention_heads和attention_head_dim的乘积成二次关系</li>
+<li>与joint_attention_dim成线性关系</li>
+<li>与sample_size成二次关系（由于位置嵌入）</li>
+<li>与patch_size成平方关系（在patch嵌入部分）</li>
+<li>最主要的参数量贡献来自于Transformer层，特别是当num_layers、num_attention_heads和attention_head_dim很大时。</li>
+</ul>
 
     </div>
 
@@ -886,14 +942,14 @@ Transformer相较于CNN有更多参数，因此简单数据集上CNN效果好，
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">258k</span>
+    <span title="Word count total">261k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">3:55</span>
+    <span title="Reading time total">3:57</span>
   </span>
 </div>
 <div class="busuanzi-count">
