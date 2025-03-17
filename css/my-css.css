@@ -3,8 +3,8 @@ blockquote {
     border-left: 4px solid #000000;
     padding: 0 15px;
     margin: 15px 0;
-    background-color: rgba(245, 245, 245, 0.8);
-    opacity: 0.8;
+    background-color: rgba(245, 245, 245, 0.6);
+    opacity: 0.6;
 }
 
 /*图片*/
@@ -22,7 +22,7 @@ video {
 .my-overflow-image {
     height: 550px;
     overflow-y: scroll;
-    border: 1px solid #ccc;
+    border: 1px solid #252323;
     padding: 10px;
     opacity: 1.0;
     border-radius: 15px;
