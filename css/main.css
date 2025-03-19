@@ -2781,21 +2781,6 @@ body {
   background-size: cover;
   background-position: 50% 50%;
 }
-.content-wrap {
-  opacity: 0.8;
-}
-.post-block {
-  background: rgba(255,255,255,0.85) none repeat scroll !important;
-}
-.sidebar {
-  opacity: 0.9;
-}
-.header-inner {
-  background: rgba(255,255,255,0.9);
-}
-.popup {
-  opacity: 1;
-}
 code {
   margin: 0px 4px;
   font-size: 80%;
