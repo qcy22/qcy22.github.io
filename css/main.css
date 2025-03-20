@@ -2781,6 +2781,12 @@ body {
   background-size: cover;
   background-position: 50% 50%;
 }
+.content-wrap {
+  opacity: 0.8;
+}
+.sidebar {
+  opacity: 0.9;
+}
 code {
   margin: 0px 4px;
   font-size: 80%;
