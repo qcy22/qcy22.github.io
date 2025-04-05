@@ -120,3 +120,21 @@ video {
 }
 
 
+/*hover图像显示文字*/
+img {
+    outline: none;
+}
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    padding: 12px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.4;
+}
