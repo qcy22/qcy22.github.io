@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shell</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #0f0;
+            font-family: monospace;
+            padding: 20px;
+        }
+
+        #shell {
+            border: 1px solid #0f0;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            background-color: #000;
+        }
+
+        .prompt {
+            display: flex;
+            position: relative;
+        }
+
+        .username {
+            margin-right: 5px;
+        }
+
+        #input {
+            background: none;
+            border: none;
+            color: #0f0;
+            width: 100%;
+            font-family: monospace;
+            font-size: 1em;
+            outline: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #input-container {
+            position: relative;
+            flex: 1;
+        }
+
+        #ghost-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: rgba(0, 255, 0, 0.5);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shell"></div>
+    <div class="prompt">
+        <span class="username">user@webshell:/home$</span>
+        <div id="input-container">
+            <div id="ghost-input"></div>
+            <input type="text" id="input" autofocus autocomplete="off">
+        </div>
+    </div>
+
+    <script>
+        const shell = document.getElementById('shell');
+        const input = document.getElementById('input');
+        const ghostInput = document.getElementById('ghost-input');
+        const username = 'user@webshell:/home$';
+
+        const files = {};
+
+        const commands = {
+            help: () => 'Available commands: help, ls, echo [text], date, whoami, clear, fortune, math [expression], cd [dir], weather, ascii, touch [file], cat [file], vim [file], theme [dark|light]',
+            ls: () => Object.keys(files).join('  ') || 'No files yet.',
+            echo: (args) => args.join(' '),
+            date: () => new Date().toString(),
+            whoami: () => 'user',
+            clear: () => { shell.innerHTML = ''; return ''; },
+            fortune: () => {
+                const fortunes = [
+                    "The best way to predict the future is to invent it.",
+                    "You will have a great day today!",
+                    "Keep calm and code on.",
+                    "Every expert was once a beginner.",
+                    "Sometimes it’s the people no one can imagine anything of who do the things no one can imagine."
+                ];
+                return fortunes[Math.floor(Math.random() * fortunes.length)];
+            },
+            math: (args) => {
+                try {
+                    return eval(args.join(' ')).toString();
+                } catch {
+                    return 'Invalid math expression';
+                }
+            },
+            cd: (args) => `Changed directory to ${args[0] || '~'}`,
+            weather: () => 'It’s always sunny in the shell 🌞',
+            ascii: () => (
+                `  ___  \\n (o o)\\\
+(  V  )\\\\n--m-m------`
+            ),
+            touch: (args) => {
+                if (!args[0]) return 'Usage: touch [filename]';
+                files[args[0]] = '';
+                return `Created file: ${args[0]}`;
+            },
+            cat: (args) => {
+                if (!args[0]) return 'Usage: cat [filename]';
+                return files[args[0]] || `No such file: ${args[0]}`;
+            },
+            vim: (args) => {
+                if (!args[0]) return 'Usage: vim [filename]';
+                let content = prompt(`Enter content for ${args[0]}:`);
+                if (content !== null) {
+                    files[args[0]] = content;
+                    return `Edited file: ${args[0]}`;
+                }
+                return 'Edit cancelled';
+            },
+            theme: (args) => {
+                const theme = args[0];
+                if (theme === 'light') {
+                    document.body.style.backgroundColor = '#fff';
+                    document.body.style.color = '#000';
+                    input.style.color = '#000';
+                    ghostInput.style.color = 'rgba(0,0,0,0.5)';
+                    shell.style.backgroundColor = '#eee';
+                    shell.style.borderColor = '#000';
+                    return 'Switched to light theme';
+                } else {
+                    document.body.style.backgroundColor = '#111';
+                    document.body.style.color = '#0f0';
+                    input.style.color = '#0f0';
+                    ghostInput.style.color = 'rgba(0,255,0,0.5)';
+                    shell.style.backgroundColor = '#000';
+                    shell.style.borderColor = '#0f0';
+                    return 'Switched to dark theme';
+                }
+            }
+        };
+
+        let history = [];
+        let historyIndex = -1;
+
+        function executeCommand(cmd) {
+            if (!cmd.trim()) return;
+            history.push(cmd);
+            historyIndex = history.length;
+            const args = cmd.trim().split(' ');
+            const command = args.shift();
+            const output = commands[command] ? commands[command](args) : `Command not found: ${command}`;
+
+            const commandLine = `<div><span class="username">${username}</span>${cmd}</div>`;
+            const outputLine = `<div>${output}</div>`;
+            const spacer = `<div style="margin-bottom: 15px;"></div>`;
+            shell.innerHTML += commandLine + outputLine + spacer;
+            shell.scrollTop = shell.scrollHeight;
+        }
+
+        input.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                executeCommand(input.value);
+                input.value = '';
+                ghostInput.textContent = '';
+            } else if (event.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = history[historyIndex];
+                }
+                event.preventDefault();
+            } else if (event.key === 'ArrowDown') {
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    input.value = history[historyIndex];
+                } else {
+                    historyIndex = history.length;
+                    input.value = '';
+                }
+                event.preventDefault();
+            } else if (event.key === 'Tab') {
+                event.preventDefault();
+                autoComplete(input.value);
+            }
+        });
+
+        input.addEventListener('input', function () {
+            showGhostSuggestion(input.value);
+        });
+
+        function autoComplete(current) {
+            const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
+            if (possibilities.length === 1) {
+                input.value = possibilities[0] + ' ';
+                ghostInput.textContent = '';
+            } else if (possibilities.length > 1) {
+                shell.innerHTML += `<div>${possibilities.join(' ')}</div>`;
+                shell.scrollTop = shell.scrollHeight;
+            }
+        }
+
+        function showGhostSuggestion(current) {
+            const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
+            if (possibilities.length === 1 && possibilities[0] !== current) {
+                ghostInput.textContent = possibilities[0];
+            } else {
+                ghostInput.textContent = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
