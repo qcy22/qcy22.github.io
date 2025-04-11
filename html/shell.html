@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Shell</title>
     <style>
         body {
@@ -23,37 +23,47 @@
 
         .prompt {
             display: flex;
-            position: relative;
-        }
-
-        .username {
-            margin-right: 5px;
+            border: 1px solid #0f0;
+            padding: 5px;
+            background-color: #000;
+            white-space: pre-wrap;
+            font-family: monospace;
+            color: #0f0;
         }
 
         #input {
-            background: none;
-            border: none;
-            color: #0f0;
-            width: 100%;
-            font-family: monospace;
-            font-size: 1em;
-            outline: none;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        #input-container {
-            position: relative;
             flex: 1;
+            outline: none;
+            white-space: pre-wrap;
+            word-break: break-word;
         }
 
-        #ghost-input {
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: rgba(0, 255, 0, 0.5);
-            pointer-events: none;
+        .username {
+            color: #0f0;
+        }
+
+        .ghost {
+            color: rgba(0, 255, 0, 0.4);
+        }
+
+        .cmd-output {
+            color: #0ff;
+        }
+
+        .cmd-error {
+            color: #f55;
+        }
+
+        .cmd-info {
+            color: #ff0;
+        }
+
+        .cmd-file {
+            color: #0f0;
+        }
+
+        .cmd-ascii {
+            color: #f0f;
         }
     </style>
 </head>
@@ -61,27 +71,21 @@
 <body>
     <div id="shell"></div>
     <div class="prompt">
-        <span class="username">user@webshell:/home$</span>
-        <div id="input-container">
-            <div id="ghost-input"></div>
-            <input type="text" id="input" autofocus autocomplete="off">
-        </div>
+        <div id="input" contenteditable="true" spellcheck="false"></div>
     </div>
 
     <script>
         const shell = document.getElementById('shell');
         const input = document.getElementById('input');
-        const ghostInput = document.getElementById('ghost-input');
-        const username = 'user@webshell:/home$';
-
+        const username = 'user@webshell:/home$ ';
         const files = {};
 
         const commands = {
-            help: () => 'Available commands: help, ls, echo [text], date, whoami, clear, fortune, math [expression], cd [dir], weather, ascii, touch [file], cat [file], vim [file], theme [dark|light]',
-            ls: () => Object.keys(files).join('  ') || 'No files yet.',
-            echo: (args) => args.join(' '),
-            date: () => new Date().toString(),
-            whoami: () => 'user',
+            help: () => '<span class="cmd-info">Available commands: help, ls, echo [text], date, whoami, clear, fortune, math [expression], cd [dir], weather, ascii, touch [file], cat [file], vim [file], theme [dark|light]</span>',
+            ls: () => `<span class="cmd-file">${Object.keys(files).join('  ') || 'No files yet.'}</span>`,
+            echo: (args) => `<span class="cmd-output">${args.join(' ')}</span>`,
+            date: () => `<span class="cmd-info">${new Date().toString()}</span>`,
+            whoami: () => '<span class="cmd-info">user</span>',
             clear: () => { shell.innerHTML = ''; return ''; },
             fortune: () => {
                 const fortunes = [
@@ -89,40 +93,37 @@
                     "You will have a great day today!",
                     "Keep calm and code on.",
                     "Every expert was once a beginner.",
-                    "Sometimes it’s the people no one can imagine anything of who do the things no one can imagine."
+                    "Sometimes it's the people no one can imagine anything of who do the things no one can imagine."
                 ];
-                return fortunes[Math.floor(Math.random() * fortunes.length)];
+                return `<span class="cmd-info">${fortunes[Math.floor(Math.random() * fortunes.length)]}</span>`;
             },
             math: (args) => {
                 try {
-                    return eval(args.join(' ')).toString();
+                    return `<span class="cmd-output">${eval(args.join(' ')).toString()}</span>`;
                 } catch {
-                    return 'Invalid math expression';
+                    return '<span class="cmd-error">Invalid math expression</span>';
                 }
             },
-            cd: (args) => `Changed directory to ${args[0] || '~'}`,
-            weather: () => 'It’s always sunny in the shell 🌞',
-            ascii: () => (
-                `  ___  \\n (o o)\\\
-(  V  )\\\\n--m-m------`
-            ),
+            cd: (args) => `<span class="cmd-info">Changed directory to ${args[0] || '~'}</span>`,
+            weather: () => "<span class=\"cmd-info\">It's always sunny in the shell 🌞</span>",
+            ascii: () => `<span class="cmd-ascii">  ___\n (o o)\n(  V  )\n--m-m------</span>`,
             touch: (args) => {
-                if (!args[0]) return 'Usage: touch [filename]';
+                if (!args[0]) return '<span class="cmd-error">Usage: touch [filename]</span>';
                 files[args[0]] = '';
-                return `Created file: ${args[0]}`;
+                return `<span class="cmd-info">Created file: ${args[0]}</span>`;
             },
             cat: (args) => {
-                if (!args[0]) return 'Usage: cat [filename]';
-                return files[args[0]] || `No such file: ${args[0]}`;
+                if (!args[0]) return '<span class="cmd-error">Usage: cat [filename]</span>';
+                return files[args[0]] ? `<span class="cmd-output">${files[args[0]]}</span>` : `<span class="cmd-error">No such file: ${args[0]}</span>`;
             },
             vim: (args) => {
-                if (!args[0]) return 'Usage: vim [filename]';
+                if (!args[0]) return '<span class="cmd-error">Usage: vim [filename]</span>';
                 let content = prompt(`Enter content for ${args[0]}:`);
                 if (content !== null) {
                     files[args[0]] = content;
-                    return `Edited file: ${args[0]}`;
+                    return `<span class="cmd-info">Edited file: ${args[0]}</span>`;
                 }
-                return 'Edit cancelled';
+                return '<span class="cmd-info">Edit cancelled</span>';
             },
             theme: (args) => {
                 const theme = args[0];
@@ -130,24 +131,52 @@
                     document.body.style.backgroundColor = '#fff';
                     document.body.style.color = '#000';
                     input.style.color = '#000';
-                    ghostInput.style.color = 'rgba(0,0,0,0.5)';
                     shell.style.backgroundColor = '#eee';
                     shell.style.borderColor = '#000';
-                    return 'Switched to light theme';
+                    return '<span class="cmd-info">Switched to light theme</span>';
                 } else {
                     document.body.style.backgroundColor = '#111';
                     document.body.style.color = '#0f0';
                     input.style.color = '#0f0';
-                    ghostInput.style.color = 'rgba(0,255,0,0.5)';
                     shell.style.backgroundColor = '#000';
                     shell.style.borderColor = '#0f0';
-                    return 'Switched to dark theme';
+                    return '<span class="cmd-info">Switched to dark theme</span>';
                 }
             }
         };
 
+        let userInput = '';
         let history = [];
         let historyIndex = -1;
+
+        function renderInput() {
+            const suggestion = getGhostSuggestion(userInput);
+            input.innerHTML = `<span class="username">${username}</span>${escapeHTML(userInput)}<span class="ghost">${escapeHTML(suggestion)}</span>`;
+            placeCursorAtEnd(input);
+        }
+
+        function getGhostSuggestion(current) {
+            const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
+            if (possibilities.length === 1 && possibilities[0] !== current) {
+                return possibilities[0].slice(current.length);
+            }
+            return '';
+        }
+
+        function placeCursorAtEnd(el) {
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => (
+                { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]
+            ));
+        }
 
         function executeCommand(cmd) {
             if (!cmd.trim()) return;
@@ -155,9 +184,9 @@
             historyIndex = history.length;
             const args = cmd.trim().split(' ');
             const command = args.shift();
-            const output = commands[command] ? commands[command](args) : `Command not found: ${command}`;
+            const output = commands[command] ? commands[command](args) : `<span class="cmd-error">Command not found: ${command}</span>`;
 
-            const commandLine = `<div><span class="username">${username}</span>${cmd}</div>`;
+            const commandLine = `<div><span class="username">${username}</span>${escapeHTML(cmd)}</div>`;
             const outputLine = `<div>${output}</div>`;
             const spacer = `<div style="margin-bottom: 15px;"></div>`;
             shell.innerHTML += commandLine + outputLine + spacer;
@@ -166,53 +195,46 @@
 
         input.addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
-                executeCommand(input.value);
-                input.value = '';
-                ghostInput.textContent = '';
+                event.preventDefault();
+                executeCommand(userInput);
+                userInput = '';
+                renderInput();
+            } else if (event.key === 'Backspace') {
+                event.preventDefault();
+                userInput = userInput.slice(0, -1);
+                renderInput();
             } else if (event.key === 'ArrowUp') {
                 if (historyIndex > 0) {
                     historyIndex--;
-                    input.value = history[historyIndex];
+                    userInput = history[historyIndex];
                 }
+                renderInput();
                 event.preventDefault();
             } else if (event.key === 'ArrowDown') {
                 if (historyIndex < history.length - 1) {
                     historyIndex++;
-                    input.value = history[historyIndex];
+                    userInput = history[historyIndex];
                 } else {
                     historyIndex = history.length;
-                    input.value = '';
+                    userInput = '';
                 }
+                renderInput();
                 event.preventDefault();
-            } else if (event.key === 'Tab') {
+            } else if (event.key === 'ArrowRight') {
+                const suggestion = getGhostSuggestion(userInput);
+                if (suggestion) {
+                    event.preventDefault();
+                    userInput += suggestion + ' ';
+                    renderInput();
+                }
+            } else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey) {
                 event.preventDefault();
-                autoComplete(input.value);
+                userInput += event.key;
+                renderInput();
             }
         });
 
-        input.addEventListener('input', function () {
-            showGhostSuggestion(input.value);
-        });
-
-        function autoComplete(current) {
-            const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
-            if (possibilities.length === 1) {
-                input.value = possibilities[0] + ' ';
-                ghostInput.textContent = '';
-            } else if (possibilities.length > 1) {
-                shell.innerHTML += `<div>${possibilities.join(' ')}</div>`;
-                shell.scrollTop = shell.scrollHeight;
-            }
-        }
-
-        function showGhostSuggestion(current) {
-            const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
-            if (possibilities.length === 1 && possibilities[0] !== current) {
-                ghostInput.textContent = possibilities[0];
-            } else {
-                ghostInput.textContent = '';
-            }
-        }
+        renderInput();
     </script>
 </body>
 

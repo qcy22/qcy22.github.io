@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E5%AE%89%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-text">网安复习笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ppt-1"><span class="nav-text">PPT 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ppt-2"><span class="nav-text">PPT 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ppt-3"><span class="nav-text">PPT 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ppt-4"><span class="nav-text">PPT 4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ppt-5"><span class="nav-text">PPT 5</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">网安复习笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">PPT 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">PPT 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">PPT 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">PPT 4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">PPT 5</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -552,54 +552,48 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="网安复习笔记">网安复习笔记</h1>
-<span id="more"></span>
-<h1 id="ppt-1">PPT 1</h1>
+    <div class="post-body" itemprop="articleBody"><h1>网安复习笔记</h1>
+<span id="more"></span>         
+<h1>PPT 1</h1>
 <p><strong>通信的基本要素</strong>：信源，信道，信宿</p>
 <p><strong>三网合一</strong>：计算机网络，电信网，有线电视网</p>
-<p><strong>engima密码</strong>：
-注意反射后要从下往上找，解密是一样的，按一下键后第一个会转动，后面的可能转动，反射板不自动转动</p>
-<h1 id="ppt-2">PPT 2</h1>
-<p>传统加密 对称加密 单钥加密<br />
+<p><strong>engima密码</strong>：    注意反射后要从下往上找，解密是一样的，按一下键后第一个会转动，后面的可能转动，反射板不自动转动</p>
+<h1>PPT 2</h1>
+<p>传统加密 对称加密 单钥加密<br>
 现代加密 非对称加密 公钥加密</p>
 <p>对称密码 or 非对称密码</p>
 <p>流密码 or 分组密码</p>
 <p><strong>古代密码学和现代密码学的分界线，即现代密码学的原理</strong>：加密体系的安全性并不依赖于加密的方法本身，而是依赖于所使用的密钥</p>
-<ol type="1">
+<ol>
 <li><strong>Caesar密码</strong>：对字母表中的每个字母用它之后的第3个字母代换</li>
 <li><strong>密钥词密码</strong>：设一个密钥词放在前面，其余字母按顺序</li>
-<li><strong>Playfair密码</strong>：注意相同的字母要填充，同行、同列、异行异列<br />
-</li>
-<li><strong>Hill密码</strong>：C=KP mod 26<br />
-</li>
-<li><strong>Vigenere密码</strong>：密钥中的每个字母代表一个替换规则<br />
-</li>
+<li><strong>Playfair密码</strong>：注意相同的字母要填充，同行、同列、异行异列</li>
+<li><strong>Hill密码</strong>：C=KP mod 26</li>
+<li><strong>Vigenere密码</strong>：密钥中的每个字母代表一个替换规则</li>
 <li><strong>Vernam密码</strong>：相加取模</li>
-<li><strong>S-DES</strong>：对称密码，各种置换<br />
-</li>
-<li><strong>RSA</strong>：欧拉定理，推论竟然不需要互质，神奇<br />
-</li>
+<li><strong>S-DES</strong>：对称密码，各种置换</li>
+<li><strong>RSA</strong>：欧拉定理，推论竟然不需要互质，神奇</li>
 <li><strong>Diffie-Hellman密钥交换算法</strong>：本原根，离散对数</li>
 </ol>
-<h1 id="ppt-3">PPT 3</h1>
+<h1>PPT 3</h1>
 <p>对称加密不能提供数字签名，接收方可以伪造信息，发送方可以否认信息（不懂）</p>
-<h1 id="ppt-4">PPT 4</h1>
-<p>IPsec保障了ip级的安全性，包括认证，保密，密钥管理<br />
-包认证的扩展报头为认证头AH<br />
+<h1>PPT 4</h1>
+<p>IPsec保障了ip级的安全性，包括认证，保密，密钥管理<br>
+包认证的扩展报头为认证头AH<br>
 包加密的扩展报头为封装安全载荷ESP</p>
 <p>安全关联SA是一种单向关系，由安全参数索引SPI，ip目的地址IPDA和安全协议标识三个参数唯一确定</p>
 <p>相关的数据库有SADB,SPDB，后者用来决定是否进行封装，以哪种方式封装，前者决定封装时的参数</p>
-<ol type="1">
+<ol>
 <li>传输模式：IP+AH/ESP+TCP/UDP+应用数据</li>
 <li>隧道模式：新IP头+AH/ESP+原IP头+原TCP/UDP+应用数据</li>
 </ol>
 <p>单个SA只能实现AH或者ESP中的一种</p>
 <p>IKE解决了在不安全的网络环境中安全的建立和更新共享密钥的问题，其精髓在于永远不在不安全的网络上直接传输密钥</p>
-<p>IKE一阶段 协商IKE SA：协商策略、密钥生成、身份和交换验证<br />
+<p>IKE一阶段 协商IKE SA：协商策略、密钥生成、身份和交换验证<br>
 二阶段 协商IPsec SA</p>
-<h1 id="ppt-5">PPT 5</h1>
+<h1>PPT 5</h1>
 <p>SSL工作在TCP协议上，与应用层协议无关</p>
-<p>SSL为端到端的应用提供了保密性、完整性、身份认证等安全服务<br />
+<p>SSL为端到端的应用提供了保密性、完整性、身份认证等安全服务<br>
 前两个服务由SSL记录协议实现，认证由SSL握手协议实现</p>
 <p>记录协议：分片，压缩，添加MAC码，加密</p>
 
@@ -658,14 +652,14 @@ if(canvas.getContext){
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">282k</span>
+    <span title="Word count total">280k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">4:17</span>
+    <span title="Reading time total">4:15</span>
   </span>
 </div>
 <div class="busuanzi-count">
