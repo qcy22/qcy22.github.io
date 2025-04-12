@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="STARS   START      REMOVE       Remove                     保留 卸载   WEATHER       加载中...      切换天气    晴天   多云   下雨   下雪   雾霾      查询城市    海淀区   三门峡           .back-button {         position: fixed;">
+    <meta name="description" content="STARS  START   REMOVE      Remove          保留 卸载         WEATHER    加载中...    切换天气  晴天 多云 下雨 下雪 雾霾    查询城市  海淀区 三门峡          .back-button {         position: fixed;         top: 10px;         left: 10">
 <meta property="og:type" content="website">
 <meta property="og:title" content="toys">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/toys/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="STARS   START      REMOVE       Remove                     保留 卸载   WEATHER       加载中...      切换天气    晴天   多云   下雨   下雪   雾霾      查询城市    海淀区   三门峡           .back-button {         position: fixed;">
+<meta property="og:description" content="STARS  START   REMOVE      Remove          保留 卸载         WEATHER    加载中...    切换天气  晴天 多云 下雨 下雪 雾霾    查询城市  海淀区 三门峡          .back-button {         position: fixed;         top: 10px;         left: 10">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-17T15:57:04.000Z">
 <meta property="article:modified_time" content="2025-03-07T12:45:12.761Z">
@@ -143,9 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#stars"><span class="nav-text">STARS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#remove"><span class="nav-text">REMOVE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">
-Remove
-</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#weather"><span class="nav-text">WEATHER</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">STARS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">REMOVE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">Remove</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">WEATHER</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -493,91 +491,53 @@ if(canvas.getContext){
       
       
       <div class="post-body">
-          <h1 id="stars">STARS</h1>
+          <h1>STARS</h1>
 <div id="container">
-<button id="startButton">
-START
-</button>
-<div id="renderCanvas">
-
+<button id="startButton">START</button>
+<div id="renderCanvas"></div>
 </div>
-</div>
-<h1 id="remove">REMOVE</h1>
+<h1>REMOVE</h1>
 <div class="Confirm">
 <div class="Confirm-Header">
 <a class="Confirm-Header-Button Confirm-Header-Button_Close" href="javascript: void(0)"></a>
 <a class="Confirm-Header-Button Confirm-Header-Button_Minimize" href="javascript: void(0)"></a>
 <a class="Confirm-Header-Button Confirm-Header-Button_Maximize" href="javascript: void(0)"></a>
-<h2 class="Confirm-Header-Title">
-Remove
-</h2>
+<h2 class="Confirm-Header-Title">Remove</h2>
 </div>
 <div class="Confirm-Body">
 <figure class="Boi" style="--happiness:0.9; --derp:1; --px:0.5; --py:0.5;">
-<div class="Boi-Blush Boi-Blush_L">
-
-</div>
-<div class="Boi-Blush Boi-Blush_R">
-
-</div>
-<div class="Boi-Eye Boi-Eye_L">
-
-</div>
-<div class="Boi-Eye Boi-Eye_R">
-
-</div>
-<div class="Boi-Mouth">
-
-</div>
+<div class="Boi-Blush Boi-Blush_L"></div>
+<div class="Boi-Blush Boi-Blush_R"></div>
+<div class="Boi-Eye Boi-Eye_L"></div>
+<div class="Boi-Eye Boi-Eye_R"></div>
+<div class="Boi-Mouth"></div>
 </figure>
-<p><a class="Confirm-Body-Button Confirm-Body-Button_Cancel" href="javascript: void(0)">保留</a>
-<a class="Confirm-Body-Button Confirm-Body-Button_Delete" href="javascript: void(0)">卸载</a></p>
+<a class="Confirm-Body-Button Confirm-Body-Button_Cancel" href="javascript: void(0)">保留</a>
+<a class="Confirm-Body-Button Confirm-Body-Button_Delete" href="javascript: void(0)">卸载</a>
 </div>
-</div>
-<h1 id="weather">WEATHER</h1>
+</div>      
+<h1>WEATHER</h1>
 <div class="main-container">
 <div id="weatherCard" class="weather-card">
-<div id="weatherAnimation" class="weather-animation">
-
-</div>
-<div class="loading">
-加载中...
-</div>
+<div id="weatherAnimation" class="weather-animation"></div>
+<div class="loading">加载中...</div>
 </div>
 <div class="side-controls">
 <div class="control-section">
-<div class="control-label">
-切换天气
-</div>
+<div class="control-label">切换天气</div>
 <div class="weather-buttons">
-<button class="btn btn-weather" data-weather="sunny">
-晴天
-</button>
-<button class="btn btn-weather" data-weather="cloudy">
-多云
-</button>
-<button class="btn btn-weather" data-weather="rainy">
-下雨
-</button>
-<button class="btn btn-weather" data-weather="snowy">
-下雪
-</button>
-<button class="btn btn-weather" data-weather="haze">
-雾霾
-</button>
+<button class="btn btn-weather" data-weather="sunny">晴天</button>
+<button class="btn btn-weather" data-weather="cloudy">多云</button>
+<button class="btn btn-weather" data-weather="rainy">下雨</button>
+<button class="btn btn-weather" data-weather="snowy">下雪</button>
+<button class="btn btn-weather" data-weather="haze">雾霾</button>
 </div>
 </div>
 <div class="control-section">
-<div class="control-label">
-查询城市
-</div>
+<div class="control-label">查询城市</div>
 <div class="city-buttons">
-<button class="btn btn-city" data-city="110108">
-海淀区
-</button>
-<button class="btn btn-city" data-city="411200">
-三门峡
-</button>
+<button class="btn btn-city" data-city="110108">海淀区</button>
+<button class="btn btn-city" data-city="411200">三门峡</button>
 </div>
 </div>
 </div>
@@ -1067,7 +1027,7 @@ function update() {
     requestAnimationFrame(update);
 }
 update();
-</script>
+</script>           
 <style>
 .main-container {
     position: relative;
@@ -1511,7 +1471,7 @@ update();
         transform: translateY(-5px);
     }
 }
-</style>
+</style>        
 <script>
 let currentWeatherData = null;
 document.addEventListener('DOMContentLoaded', () => {
@@ -1748,7 +1708,6 @@ function showError(message) {
     card.innerHTML = `<div class="error">${message}</div>`;
 }
 </script>
-
       </div>
       
       
