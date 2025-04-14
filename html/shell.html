@@ -80,8 +80,76 @@
         const username = 'user@webshell:/home$ ';
         const files = {};
 
+        const asciiArt = {
+            cow: `
+  _^_
+ (o o)
+(  V  )
+--m-m------`,
+            name: `
+  ___        ____
+ / _ \\      / __ \\
+| |_) )    | |__| |
+|  _ <     |  __  |
+| |_) )    | |__| |
+| ___/      \\____/
+|_|`,
+            beta: `
+  _           _
+ | |         | |
+ | |__   ___ | |_    __
+ |  _ \\ / _ \\| __| / _  |
+ | |_) |  __/| |_ | (_| |
+ |_ __/ \\___| \\__| \\__ _|
+`,
+            theta: `
+  _    _           _           
+ | |  | |         | |          
+ | |_ | |__   ___ | |_    __ 
+ | __||  _ \\ / _ \\| __| / _  |
+ | |_ | | | |  __/| |_ | (_| |
+  \\__||_| |_|\\___| \\__| \\__,_|
+`
+        };
+
+        const help_text=`
+🏁 Welcome, traveler of the Interwebs! 🏁
+
+✨ This is your command playground. Try stuff. 
+🚀 Pro tip: the shell gets sassier the more you poke it.
+
+🧰 Useful tools:
+  help             You’re here already. Congrats.
+  ls               Look around. It’s... empty?
+  echo [text]      Type. Reflect. Regret?
+  date             The moment is now...ish.
+  whoami           Discover your identity.
+  clear            Cleanse the past. Start anew.
+  math [expr]      Do math. No calculators allowed.
+  cd [dir]         Pretend you’re moving places.
+  weather          Always sunny. Totally accurate.
+
+📂 File Commands:
+  touch [file]     Create a file out of thin air.
+  cat [file]       Peek inside your creations.
+  vim [file]       Edit stuff like it’s 1991.
+
+🎨 Bonus content:
+  ascii [key]      Little text masterpieces.
+    - cow          Moo-tiful art.
+    - name         Name in lights.
+    - beta, theta  Nerdy Greek vibes.
+
+🎨 Appearance:
+  theme [dark|light]  Flip the vibe switch.
+
+⚠️ Warning:
+Messing with time-space via this shell may void your warranty.
+`
+
+
         const commands = {
-            help: () => '<span class="cmd-info">Available commands: help, ls, echo [text], date, whoami, clear, fortune, math [expression], cd [dir], weather, ascii, touch [file], cat [file], vim [file], theme [dark|light]</span>',
+            help: () => `<pre class="cmd-info">${help_text}</pre>`,
             ls: () => `<span class="cmd-file">${Object.keys(files).join('  ') || 'No files yet.'}</span>`,
             echo: (args) => `<span class="cmd-output">${args.join(' ')}</span>`,
             date: () => `<span class="cmd-info">${new Date().toString()}</span>`,
@@ -106,7 +174,15 @@
             },
             cd: (args) => `<span class="cmd-info">Changed directory to ${args[0] || '~'}</span>`,
             weather: () => "<span class=\"cmd-info\">It's always sunny in the shell 🌞</span>",
-            ascii: () => `<span class="cmd-ascii">  ___\n (o o)\n(  V  )\n--m-m------</span>`,
+            ascii: (args) => {
+                const key = args[0] || 'cow'; // 默认是 cow
+                const art = asciiArt[key];
+                if (art) {
+                    return `<pre class="cmd-ascii">${art}</pre>`;
+                } else {
+                    return `<span class="cmd-error">No such ascii art: ${key}</span>`;
+                }
+            },
             touch: (args) => {
                 if (!args[0]) return '<span class="cmd-error">Usage: touch [filename]</span>';
                 files[args[0]] = '';
@@ -156,6 +232,7 @@
         }
 
         function getGhostSuggestion(current) {
+            if (!current) return '';
             const possibilities = Object.keys(commands).filter(cmd => cmd.startsWith(current));
             if (possibilities.length === 1 && possibilities[0] !== current) {
                 return possibilities[0].slice(current.length);
