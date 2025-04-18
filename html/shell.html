@@ -139,14 +139,92 @@
     - cow          Moo-tiful art.
     - name         Name in lights.
     - beta, theta  Nerdy Greek vibes.
+  donut [seconds]  Watch a donut spin. Yes, really.
+  fortune         Random wisdom. Or nonsense.
 
 🎨 Appearance:
   theme [dark|light]  Flip the vibe switch.
 
 ⚠️ Warning:
-Messing with time-space via this shell may void your warranty.
+  Messing with time-space via this shell may void your warranty.
 `
 
+        function startDonutAnimation(durationInSeconds = 5) {
+            const width = 80;
+            const height = 24;
+            const frameRate = 50;
+
+            let A = 0;
+            let B = 0;
+            let intervalId;
+
+            const luminanceChars = '.,-~:;=!*#$@';
+            const donutContainer = document.createElement('pre');
+            donutContainer.style.color = '#0ff';
+            donutContainer.style.fontFamily = 'monospace';
+            donutContainer.style.marginBottom = '20px';
+            donutContainer.style.whiteSpace = 'pre';
+            shell.appendChild(donutContainer);
+
+            function renderFrame() {
+                const z = Array(width * height * 4).fill(0);
+                const b = Array(width * height).fill(' ');
+
+                for (let j = 0; j < 6.28; j += 0.07) {
+                    for (let i = 0; i < 6.28; i += 0.02) {
+                        const sinA = Math.sin(A), cosA = Math.cos(A);
+                        const sinB = Math.sin(B), cosB = Math.cos(B);
+                        const sini = Math.sin(i), cosi = Math.cos(i);
+                        const cosj = Math.cos(j), sinj = Math.sin(j);
+
+                        const cosj2 = cosj + 2;
+                        const mess = 1 / (sini * cosj2 * sinA + sinj * cosA + 5);
+                        const t = sini * cosj2 * cosA - sinj * sinA;
+
+                        const x = Math.floor(width / 2 + 30 * mess * (cosi * cosj2 * cosB - t * sinB));
+                        const y = Math.floor(height / 2 + 15 * mess * (cosi * cosj2 * sinB + t * cosB));
+                        const o = x + width * y;
+
+                        const N = Math.floor(8 * ((sinj * sinA - sini * cosj * cosA) * cosB - sini * cosj * sinA - sinj * cosA - cosi * cosj * sinB));
+
+                        if (y >= 0 && y < height && x >= 0 && x < width && z[o] < mess) {
+                            z[o] = mess;
+                            b[o] = luminanceChars[Math.max(0, N)];
+                        }
+                    }
+                }
+
+                let frame = '';
+                for (let i = 0; i < b.length; i++) {
+                    frame += b[i];
+                    if ((i + 1) % width === 0) frame += '\n';
+                }
+
+                donutContainer.innerText = frame;
+                A += 0.04;
+                B += 0.02;
+            }
+
+            intervalId = setInterval(renderFrame, frameRate);
+
+            setTimeout(() => {
+                clearInterval(intervalId);
+
+                // Append the completion message
+                const endMsgDiv = document.createElement('div');
+                endMsgDiv.className = 'cmd-info';
+                // Use textContent for simple text to avoid potential HTML injection if durationInSeconds was manipulatable
+                endMsgDiv.textContent = `Donut animation ended after ${durationInSeconds}s 🎉`;
+                shell.appendChild(endMsgDiv);
+
+                // Append the spacer
+                const spacerDiv = document.createElement('div');
+                spacerDiv.style.marginBottom = '15px';
+                shell.appendChild(spacerDiv);
+
+                shell.scrollTop = shell.scrollHeight;
+            }, durationInSeconds * 1000);
+        }
 
         const commands = {
             help: () => `<pre class="cmd-info">${help_text}</pre>`,
@@ -218,7 +296,13 @@ Messing with time-space via this shell may void your warranty.
                     shell.style.borderColor = '#0f0';
                     return '<span class="cmd-info">Switched to dark theme</span>';
                 }
-            }
+            },
+            donut: (args) => {
+                let duration = parseInt(args[0]);
+                if (isNaN(duration) || duration <= 0) duration = 5;
+                startDonutAnimation(duration);
+                return `<span class="cmd-info">Rendering rotating donut for ${duration} second(s)... 🍩</span>`;
+            },
         };
 
         let userInput = '';
@@ -260,13 +344,54 @@ Messing with time-space via this shell may void your warranty.
             history.push(cmd);
             historyIndex = history.length;
             const args = cmd.trim().split(' ');
-            const command = args.shift();
-            const output = commands[command] ? commands[command](args) : `<span class="cmd-error">Command not found: ${command}</span>`;
+            const commandName = args.shift();
 
-            const commandLine = `<div><span class="username">${username}</span>${escapeHTML(cmd)}</div>`;
-            const outputLine = `<div>${output}</div>`;
-            const spacer = `<div style="margin-bottom: 15px;"></div>`;
-            shell.innerHTML += commandLine + outputLine + spacer;
+            // Special handling for 'clear' command
+            if (commandName === 'clear') {
+                shell.innerHTML = ''; // Clear the shell content directly
+                userInput = ''; // Reset user input
+                renderInput(); // Re-render the input prompt area
+                return; // Exit early
+            }
+
+            // --- Append Command Line ---
+            const commandLineDiv = document.createElement('div');
+            const userSpan = document.createElement('span');
+            userSpan.className = 'username';
+            userSpan.textContent = username;
+            commandLineDiv.appendChild(userSpan);
+            // Append the actual command text safely using createTextNode
+            commandLineDiv.appendChild(document.createTextNode(cmd));
+            shell.appendChild(commandLineDiv);
+
+            // --- Execute Command and Get Output HTML ---
+            let outputHtml = '';
+            if (commands[commandName]) {
+                // Execute the command. For 'donut', this starts the animation
+                // and returns the initial info message. startDonutAnimation appends the container.
+                outputHtml = commands[commandName](args);
+            } else {
+                outputHtml = `<span class="cmd-error">Command not found: ${commandName}</span>`;
+            }
+
+            // --- Append Output Line (if any) ---
+            // The outputHtml contains the info message for donut, or the result for others.
+            if (outputHtml) {
+                const outputLineDiv = document.createElement('div');
+                // Use innerHTML here because commands return HTML strings
+                outputLineDiv.innerHTML = outputHtml;
+                shell.appendChild(outputLineDiv);
+            }
+
+            // --- Append Spacer ---
+            // Add spacer unless it's the donut command, which handles its own final message and spacing.
+            if (commandName !== 'donut') {
+                const spacerDiv = document.createElement('div');
+                spacerDiv.style.marginBottom = '15px';
+                shell.appendChild(spacerDiv);
+            }
+
+            // --- Scroll ---
             shell.scrollTop = shell.scrollHeight;
         }
 
