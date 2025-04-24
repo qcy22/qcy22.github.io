@@ -29,7 +29,7 @@
 <meta property="og:description" content="STARS  START   REMOVE      Remove          保留 卸载         WEATHER    加载中...    切换天气  晴天 多云 下雨 下雪 雾霾    查询城市  海淀区 三门峡          .back-button {         position: fixed;         top: 10px;         left: 10">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-17T15:57:04.000Z">
-<meta property="article:modified_time" content="2025-03-07T12:45:12.761Z">
+<meta property="article:modified_time" content="2025-04-24T03:00:57.155Z">
 <meta property="article:author" content="QCY">
 <meta property="article:tag" content="备考期中版">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1518,7 +1518,7 @@ async function fetchWeather(apiKey, cityCode) {
     }
     card.innerHTML = '<div id="weatherAnimation" class="weather-animation"></div><div class="loading">加载中...</div>';
     try {
-        const response = await fetch(`https://restapi.amap.com/v3/weather/weatherInfo?city=${cityCode}&key=${apiKey}`);
+        const response = await fetch(`https://qcy-test.deno.dev/weather?city=${cityCode}`);
         const data = await response.json();
 
         if (data.status === '1' && data.lives && data.lives.length > 0) {
@@ -1738,14 +1738,14 @@ function showError(message) {
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">289k</span>
+    <span title="Word count total">283k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">4:22</span>
+    <span title="Reading time total">4:17</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -234,14 +234,26 @@
             whoami: () => '<span class="cmd-info">user</span>',
             clear: () => { shell.innerHTML = ''; return ''; },
             fortune: () => {
-                const fortunes = [
-                    "The best way to predict the future is to invent it.",
-                    "You will have a great day today!",
-                    "Keep calm and code on.",
-                    "Every expert was once a beginner.",
-                    "Sometimes it's the people no one can imagine anything of who do the things no one can imagine."
-                ];
-                return `<span class="cmd-info">${fortunes[Math.floor(Math.random() * fortunes.length)]}</span>`;
+                const id = `fortune-${Date.now()}`;
+                fetch('https://qcy-test.deno.dev/quote')
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        const element = document.getElementById(id);
+                        if (element) {
+                            let quote = escapeHTML(data.hitokoto);
+                            let from = data.from_who || '佚名';
+                            element.innerHTML = `${quote} <br><span style="color:#888">—— ${escapeHTML(from)}</span>`;
+                        }
+                    })
+                    .catch(err => {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            element.innerHTML = 'Failed to fetch quote 😢';
+                        }
+                    });
+
+                return `<span class="cmd-info" id="${id}">Loading quote...</span>`;
             },
             math: (args) => {
                 try {
