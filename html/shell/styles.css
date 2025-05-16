@@ -1,0 +1,75 @@
+body {
+    background-color: #111;
+    color: #0f0;
+    font-family: monospace;
+    padding: 20px;
+}
+
+#shell {
+    border: 1px solid #0f0;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #000;
+}
+
+.prompt {
+    display: flex;
+    border: 1px solid #0f0;
+    padding: 5px;
+    background-color: #000;
+    white-space: pre-wrap;
+    font-family: monospace;
+    color: #0f0;
+}
+
+#input {
+    flex: 1;
+    outline: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.username {
+    color: #0f0;
+}
+
+.ghost {
+    color: rgba(0, 255, 0, 0.4);
+}
+
+.cmd-output {
+    color: #0ff;
+}
+
+.cmd-error {
+    color: #f55;
+}
+
+.cmd-info {
+    color: #ff0;
+}
+
+.cmd-file {
+    color: #0f0;
+}
+
+.cmd-ascii {
+    color: #f0f;
+}
+
+#uploadButton {
+    background-color: #222;
+    color: #0f0;
+    border: 1px solid #0f0;
+    cursor: pointer;
+    padding: 3px 8px;
+    font-family: monospace;
+    font-size: 14px;
+    margin-left: 5px;
+    height: 100%;
+}
+
+#uploadButton:hover {
+    background-color: #333;
+}
