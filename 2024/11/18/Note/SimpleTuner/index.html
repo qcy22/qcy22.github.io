@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"github.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"show_result":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="读SimpleTuner代码">
+    <meta name="description" content="1&nbsp;&nbsp;&nbsp;读SimpleTuner代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SimpleTuner">
 <meta property="og:url" content="https://github.com/qcy22/qcy22.github.io.git/2024/11/18/Note/SimpleTuner/index.html">
 <meta property="og:site_name" content="QCY&#39;s blog">
-<meta property="og:description" content="读SimpleTuner代码">
+<meta property="og:description" content="1&nbsp;&nbsp;&nbsp;读SimpleTuner代码">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-18T06:17:43.000Z">
 <meta property="article:modified_time" content="2024-11-23T08:26:01.342Z">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BBsimpletuner%E4%BB%A3%E7%A0%81"><span class="nav-text">读SimpleTuner代码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BBsimpletuner%E4%BB%A3%E7%A0%81"><span class="nav-text">1   读SimpleTuner代码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -561,7 +561,7 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="读simpletuner代码">读SimpleTuner代码</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="读simpletuner代码">1&nbsp;&nbsp;&nbsp;读SimpleTuner代码</h1>
 <span id="more"></span>
 <p>learn_rate</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">self.config.learning_rate = (</span><br><span class="line">    self.config.learning_rate</span><br><span class="line">    * self.config.gradient_accumulation_steps</span><br><span class="line">    * self.config.train_batch_size</span><br><span class="line">    * <span class="built_in">getattr</span>(self.accelerator, <span class="string">&quot;num_processes&quot;</span>, <span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
